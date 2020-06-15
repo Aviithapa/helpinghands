@@ -1,0 +1,210 @@
+@extends('web.layouts.app')
+
+@section('content')
+    <style>
+
+        /*sign up*/
+        .signup .btnContactSubmit {
+            width: 50%;
+            border-radius: 1rem;
+            padding: 1.5%;
+            color: #fff;
+            background-color: #0062cc;
+            border: none;
+            cursor: pointer;
+            margin-right: 6%;
+            background-color: white;
+            color: blue;
+            margin-top: 4%;
+        }
+
+        .signup .register .nav-tabs .nav-link:hover {
+            border: none;
+        }
+
+        .signup .text-align {
+            margin-top: -3%;
+            margin-bottom: -9%;
+
+            padding: 10%;
+            margin-left: 30%;
+        }
+
+        .signup .form-new {
+            margin-right: 22%;
+            margin-left: 20%;
+        }
+
+        .signup .register-heading {
+            margin-left: 21%;
+            margin-bottom: 10%;
+            color: #e9ecef;
+        }
+
+        .signup .register-heading h1 {
+            margin-left: 21%;
+            margin-bottom: 10%;
+            color: #e9ecef;
+        }
+
+        .signup .btnLoginSubmit {
+            border: none;
+            padding: 2%;
+            width: 25%;
+            cursor: pointer;
+            background: #29abe2;
+            color: #fff;
+        }
+
+        .signup .btnForgetPwd {
+            cursor: pointer;
+            margin-right: 5%;
+            color: #f8f9fa;
+        }
+
+        .signup .register {
+            background: -webkit-linear-gradient(left, #3931af, #00c6ff);
+            margin-top: 3%;
+            padding: 3%;
+            /*border-radius: 2.5rem;*/
+        }
+
+        .signup .nav-tabs .nav-link {
+            border: 1px solid transparent;
+            border-top-left-radius: .25rem;
+            border-top-right-radius: .25rem;
+            color: white;
+        }
+
+
+    </style>
+    <div class="body index-page" id="login-page">
+        <div role="main" class="main">
+            <section class="parallax section  overlay overlay-color-dark overlay-show  section-parallax "
+                     data-appear-animation="fadeIn" data-plugin-parallax
+                     data-plugin-options="{'speed': 1.5, 'parallaxHeight': '140%'}"
+                     data-image-src="img/custom/londonBanner.jpg">
+                <div class="container py-5 my-4">
+
+                    <!--login-->
+                    <section class="signup">
+                        <!--<div class="container register">-->
+                        <div class="register">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <ul class="nav nav-tabs nav-justified" id="myTab" role="tablist">
+                                        <li class="nav-item">
+                                            <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab"
+                                               aria-controls="home" aria-selected="true">Student Registration</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab"
+                                               aria-controls="profile" aria-selected="false">Agent Registration</a>
+                                        </li>
+                                    </ul>
+                                    <div class="tab-content" id="myTabContent">
+                                        <div class="tab-pane fade show active text-align form-new" id="home" role="tabpanel"
+                                             aria-labelledby="home-tab">
+
+                                            <!--student registration-->
+                                            <section class="student-registration">
+
+                                                <div class="container">
+                                                    <!---heading---->
+                                                    <header class="heading"> Registration-Form</header>
+                                                    <hr></hr>
+                                                    <!---Form starting---->
+                                                    <form>
+
+                                                        <!--- For Name---->
+                                                        <div class="form-row">
+                                                            <div class="form-group col-md-6 mb-2">
+                                                                <label class="text-color-light-2" for="shopLoginSignInEmail">FIRST
+                                                                    NAME
+                                                                    :</label>
+                                                                <input type="email" value="" maxlength="100"
+                                                                       class="form-control bg-light border-0 rounded text-1"
+                                                                       name="email" id="shopLoginSignInEmail" required="">
+                                                            </div>
+                                                            <div class="form-group col-md-6 mb-2">
+                                                                <label class="text-color-light-2" for="shopLoginSignInEmail">LAST
+                                                                    NAME
+                                                                    :</label>
+                                                                <input type="email" value="" maxlength="100"
+                                                                       class="form-control bg-light border-0 rounded text-1"
+                                                                       name="email" id="shopLoginSignInEmail" required="">
+                                                            </div>
+                                                        </div>
+
+                                                        <!-----For email---->
+                                                        <div class="form-row">
+                                                            <div class="form-group col mb-2">
+                                                                <label class="text-color-light-2" for="shopLoginSignInEmail">EMAIL
+                                                                    : </label>
+                                                                <input type="email" value="" maxlength="100"
+                                                                       class="form-control bg-light border-0 rounded text-1"
+                                                                       name="email" id="shopLoginSignInEmail" required="">
+                                                            </div>
+                                                        </div>
+                                                        <!-----For Password and confirm password---->
+                                                        <div class="form-row">
+                                                            <div class="form-group col mb-2">
+                                                                <label class="text-color-light-2" for="shopLoginSignInEmail">PASSWORD
+                                                                    :</label>
+                                                                <input type="email" value="" maxlength="100"
+                                                                       class="form-control bg-light border-0 rounded text-1"
+                                                                       name="email" id="shopLoginSignInEmail" required="">
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="form-row">
+                                                            <div class="form-group col mb-2">
+                                                                <div class="btn btn-warning">Submit</div>
+                                                            </div>
+                                                        </div>
+
+                                                    </form>
+
+                                                </div>
+
+                                            </section>
+
+                                        </div>
+                                        <div class="tab-pane fade show text-align form-new" id="profile" role="tabpanel"
+                                             aria-labelledby="profile-tab">
+                                            <h3 class="register-heading">Agent Registration</h3>
+                                            <!--Agent signup form-->
+                                            <!--<div class="row register-form">-->
+                                            <!--<div class="col-md-12">-->
+                                            <!--<form method="post">-->
+                                            <!--<div class="form-group">-->
+                                            <!--<input type="text" name="LGform2_user" class="form-control" placeholder="Your Email *" value="" required="" />-->
+                                            <!--</div>-->
+                                            <!--<div class="form-group">-->
+                                            <!--<input type="password" name="LGform2_pwd" class="form-control" placeholder="Your Password *" value="" required=""/>-->
+                                            <!--</div>-->
+                                            <!--<div class="form-group">-->
+                                            <!--<input type="submit" name="LGform2" class="btnContactSubmit" value="Login" />-->
+                                            <!--<a href="ForgetPassword.php" class="btnForgetPwd" value="Login">Forget Password?</a>-->
+                                            <!--</div>-->
+                                            <!--</form>-->
+                                            <!--</div>-->
+                                            <!--</div>-->
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>                </div>
+            </section>
+        </div>
+    </div>
+
+    @include('web.layouts.footerBanner')
+
+@endsection
+
+@push('scripts')
+
+@endpush
+

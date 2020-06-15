@@ -1,0 +1,1 @@
+<img class="lazy {!! isset($img_class)? $img_class: '' !!}"  data-original="{!! $image !!}" src="{{asset('images/default.png')}}" alt="{!! isset($img_text) ? $img_text : 'Bahan' !!}" title=""{!! isset($img_text) ? $img_text: 'Bahan' !!}>

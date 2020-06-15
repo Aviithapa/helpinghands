@@ -1,7 +1,5 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,6 +11,15 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+
+require 'web/auth.php';
+
+require 'web/extra.php';
+
+require 'web/backend.php';
+
+require 'web/ajax.php';
+
+require 'web/frontend.php';
+
+

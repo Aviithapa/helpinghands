@@ -1,0 +1,27 @@
+<link rel="stylesheet" href="{{asset('frontassets/css/bootstrap.min.css')}}">
+<link rel="stylesheet" href="{{asset('frontassets/css/owl.carousel.min.css')}}">
+<link rel="stylesheet" href="{{asset('frontassets/css/magnific-popup.css')}}">
+<link rel="stylesheet" href="{{asset('frontassets/css/font-awesome.min.css')}}">
+<link rel="stylesheet" href="{{asset('frontassets/css/themify-icons.css')}}">
+<link rel="stylesheet" href="{{asset('frontassets/css/nice-select.css')}}">
+<link rel="stylesheet" href="{{asset('frontassets/css/flaticon.css')}}">
+<link rel="stylesheet" href="{{asset('frontassets/css/gijgo.css')}}">
+<link rel="stylesheet" href="{{asset('frontassets/css/animate.min.css')}}">
+<link rel="stylesheet" href="{{asset('frontassets/css/slick.css')}}">
+<link rel="stylesheet" href="{{asset('frontassets/css/slick-theme.css')}}">
+<link rel="stylesheet" href="{{asset('frontassets/css/elegant-icons.css')}}">
+<link rel="stylesheet" href="{{asset('frontassets/css/slicknav.min.css')}}">
+
+<link rel="stylesheet" href="{{asset('frontassets/css/open-iconic-bootstrap.min.css')}}">
+<link rel="stylesheet" href="{{asset('frontassets/css/animate.css')}}">
+<link rel="stylesheet" href="{{asset('frontassets/css/owl.carousel.min.css')}}">
+<link rel="stylesheet" href="{{asset('frontassets/css/owl.theme.default.min.css')}}">
+<link rel="stylesheet" href="{{asset('frontassets/css/magnific-popup.css')}}">
+<link rel="stylesheet" href="{{asset('frontassets/css/aos.css')}}">
+<link rel="stylesheet" href="{{asset('frontassets/css/ionicons.min.css')}}">
+<link rel="stylesheet" href="{{asset('frontassets/css/bootstrap-datepicker.css')}}">
+<link rel="stylesheet" href="{{asset('frontassets/css/jquery.timepicker.css')}}">
+<link rel="stylesheet" href="{{asset('frontassets/css/flaticon.css')}}">
+<link rel="stylesheet" href="{{asset('frontassets/css/icomoon.css')}}">
+<link rel="stylesheet" href="{{asset('frontassets/css/style.css')}}">
+<link rel="stylesheet" href="{{asset('frontassets/css/blogstyle.css')}}">

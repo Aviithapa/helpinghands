@@ -1,0 +1,1 @@
+<link rel="stylesheet" href="{{asset('/assets/plugins/dropzone-v2/dropzone.min.css')}}">

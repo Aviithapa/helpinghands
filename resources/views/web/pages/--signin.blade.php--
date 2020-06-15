@@ -1,0 +1,160 @@
+@extends('web.layouts.app')
+@section('content')
+    <style>
+        @import url('https://fonts.googleapis.com/css?family=Numans');
+
+        #login-page {
+            /*background-image: url('http://getwallpapers.com/wallpaper/full/a/5/d/544750.jpg');*/
+            /*background-size: cover;*/
+            background-repeat: no-repeat;
+            height: 100%;
+            font-family: 'Numans', sans-serif;
+        }
+
+        /*#login-page .login-section {*/
+        /*margin: 55px auto;*/
+        /*}*/
+        }
+
+        #login-page .container {
+            height: 100%;
+            align-content: center;
+        }
+
+        #login-page .card {
+            height: 370px;
+            margin-top: auto;
+            margin-bottom: auto;
+            width: 400px;
+            background-color: rgb(0, 46, 94) !important;
+        }
+
+        #login-page .social_icon span {
+            font-size: 60px;
+            margin-left: 10px;
+            color: #FFC312;
+        }
+
+        #login-page .social_icon span:hover {
+            color: white;
+            cursor: pointer;
+        }
+
+        #login-page .card-header h3 {
+            color: white;
+        }
+
+        #login-page .social_icon {
+            position: absolute;
+            right: 20px;
+            top: -45px;
+        }
+
+        #login-page .input-group-prepend span {
+            width: 50px;
+            background-color: #FFC312;
+            color: black;
+            border: 0 !important;
+        }
+
+        #login-page input:focus {
+            outline: 0 0 0 0 !important;
+            box-shadow: 0 0 0 0 !important;
+
+        }
+
+        #login-page .remember {
+            color: white;
+        }
+
+        #login-page .remember input {
+            width: 20px;
+            height: 20px;
+            margin-left: 15px;
+            margin-right: 5px;
+        }
+
+        #login-page .login_btn {
+            color: black;
+            background-color: #FFC312;
+            width: 100px;
+        }
+
+        #login-page .login_btn:hover {
+            color: black;
+            background-color: white;
+        }
+
+        #login-page .links {
+            color: white;
+
+        }
+
+        #login-page .links a {
+            margin-left: 4px;
+            color: blue;
+        }
+    </style>
+    <div class="body index-page" id="login-page">
+        <div role="main" class="main">
+            <section class="parallax section  overlay overlay-color-dark overlay-show  section-parallax "
+                     data-appear-animation="fadeIn" data-plugin-parallax
+                     data-plugin-options="{'speed': 1.5, 'parallaxHeight': '140%'}"
+                     data-image-src="img/custom/londonBanner.jpg">
+                <div class="container py-5 my-4">
+
+                        <!--login-->
+                        <section class="section  login-section">
+                            <div class="d-flex justify-content-center h-100">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <h3>Sign In</h3>
+                                        <div class="d-flex justify-content-end social_icon">
+                                            <span><i class="fab fa-facebook-square"></i></span>
+                                            <span><i class="fab fa-google-plus-square"></i></span>
+                                            <span><i class="fab fa-twitter-square"></i></span>
+                                        </div>
+                                    </div>
+                                    <div class="card-body">
+                                        <form>
+                                            <div class="input-group form-group">
+                                                <div class="input-group-prepend">
+                                                        <span class="input-group-text"><i
+                                                                    class="fas fa-user"></i></span>
+                                                </div>
+                                                <input type="text" class="form-control" placeholder="username">
+
+                                            </div>
+                                            <div class="input-group form-group">
+                                                <div class="input-group-prepend">
+                                                    <span class="input-group-text"><i class="fas fa-key"></i></span>
+                                                </div>
+                                                <input type="password" class="form-control" placeholder="password">
+                                            </div>
+                                            <div class="row align-items-center remember">
+                                                <input type="checkbox">Remember Me
+                                            </div>
+                                            <div class="form-group">
+                                                <input type="submit" value="Login"
+                                                       class="btn float-right login_btn">
+                                            </div>
+                                        </form>
+                                    </div>
+                                    <div class="card-footer">
+                                        <div class="d-flex justify-content-center links">
+                                            Don't have an account?<a href="#">Sign Up</a>
+                                        </div>
+                                        <div class="d-flex justify-content-center">
+                                            <a href="#">Forgot your password?</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                    </div>
+            </section>
+        </div>
+    </div>
+@endsection
+@push('scripts')
+@endpush
