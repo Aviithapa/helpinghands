@@ -3,7 +3,8 @@
 @section('content')
 
     <section class="home-slider owl-carousel">
-        <div class="slider-item" style="background-image:url(images/rehab1.jpg);" data-stellar-background-ratio="0.5">
+        @foreach($banners as $banner)
+        <div class="slider-item" style="background-image:url({{ $banner->getImage() }})" data-stellar-background-ratio="0.5">
             <div class="overlay"></div>
             <div class="container">
                 <div class="row no-gutters slider-text align-items-center justify-content-end" data-scrollax-parent="true">
@@ -15,19 +16,7 @@
                 </div>
             </div>
         </div>
-
-        <div class="slider-item" style="background-image:url(images/rehab.jpg);">
-            <div class="overlay"></div>
-            <div class="container">
-                <div class="row no-gutters slider-text align-items-center justify-content-end" data-scrollax-parent="true">
-                    <div class="col-md-6 text ftco-animate">
-                        <h1 class="mb-4">Smile Makes <br>A Lasting Impression</h1>
-                        <h3 class="subheading">Your Health is Our Top Priority with Comprehensive, Affordable medical.</h3>
-                        <p><a href="#" class="btn btn-secondary px-4 py-3 mt-3">View our works</a></p>
-                    </div>
-                </div>
-            </div>
-        </div>
+        @endforeach
     </section>
 
 
@@ -35,36 +24,18 @@
     <div class="service_area">
         <div class="container">
             <div class="row">
+                @foreach($services as $service)
                 <div class="col-xl-4 col-md-4">
                     <div class="single_service text-center">
                         <div class="icon">
                             <img src="#" alt="">
                         </div>
-                        <h3>Events Management</h3>
-                        <p>Esteem spirit temper too say adieus who direct esteem. It esteems luckily or picture placing drawing.</p>
+                        <h3>{{$service->title}}</h3>
+                        <p>{{$service->content}}</p>
                         <a href="#" class="boxed-btn3-text">Learn More</a>
                     </div>
                 </div>
-                <div class="col-xl-4 col-md-4">
-                    <div class="single_service text-center">
-                        <div class="icon">
-                            <img src="img/svg_icon/seo_2.svg" alt="">
-                        </div>
-                        <h3>Donation Collection</h3>
-                        <p>Esteem spirit temper too say adieus who direct esteem. It esteems luckily or picture placing drawing.</p>
-                        <a href="#" class="boxed-btn3-text">Learn More</a>
-                    </div>
-                </div>
-                <div class="col-xl-4 col-md-4">
-                    <div class="single_service text-center">
-                        <div class="icon">
-                            <img src="img/svg_icon/seo_3.svg" alt="">
-                        </div>
-                        <h3>Rehabitation</h3>
-                        <p>Esteem spirit temper too say adieus who direct esteem. It esteems luckily or picture placing drawing.</p>
-                        <a href="#" class="boxed-btn3-text">Learn More</a>
-                    </div>
-                </div>
+                @endforeach
             </div>
 
         </div>
@@ -76,7 +47,6 @@
     <section class="ftco-section ftco-no-pt ftco-no-pb bg-light mt-10">
         <div class="container-fluid" style="padding:50px;">
             <div class="row no-gutters">
-
                 <div class="col-md-3 d-flex">
                     <div class="blog-entry ftco-animate">
                         <a href="single.html" class="img" style="background-image: url(images/image_4.jpg);"></a>
@@ -255,18 +225,14 @@
                 </div>
             </div>
             <div class="row">
+                @foreach($blogs as $blog)
                 <div class="col-md-3 ftco-animate">
                     <div class="blog-entry">
-                        <a href="blog-single.html" class="block-20 d-flex align-items-end justify-content-end" style="background-image: url('images/gopal.jpg');">
-                            <div class="meta-date text-center p-2">
-                                <span class="day">18</span>
-                                <span class="mos">September</span>
-                                <span class="yr">2019</span>
-                            </div>
+                        <a href="blog-single.html" class="block-20 d-flex align-items-end justify-content-end" style="background-image: url({{$blog->getNewsImage()}});">
                         </a>
                         <div class="text bg-white p-4" style="background-color: #46b7de;">
-                            <h3 class="heading"><a href="#">Scary Thing That You Don’t Get Enough Sleep</a></h3>
-                            <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+                            <h3 class="heading"><a href="#">{{$blog->excerpt}}</a></h3>
+                            <p>{{$blog->content}}</p>
                             <div class="d-flex align-items-center mt-4">
                                 <p class="mb-0"><a href="#" class="btn btn-primary">Read More <span class="ion-ios-arrow-round-forward"></span></a></p>
                                 <p class="ml-auto mb-0">
@@ -277,72 +243,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-3 ftco-animate">
-                    <div class="blog-entry">
-                        <a href="blog-single.html" class="block-20 d-flex align-items-end justify-content-end" style="background-image: url('images/rijan.jpg');">
-                            <div class="meta-date text-center p-2">
-                                <span class="day">18</span>
-                                <span class="mos">September</span>
-                                <span class="yr">2019</span>
-                            </div>
-                        </a>
-                        <div class="text bg-white p-4">
-                            <h3 class="heading"><a href="#">Scary Thing That You Don’t Get Enough Sleep</a></h3>
-                            <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-                            <div class="d-flex align-items-center mt-4">
-                                <p class="mb-0"><a href="#" class="btn btn-primary">Read More <span class="ion-ios-arrow-round-forward"></span></a></p>
-                                <p class="ml-auto mb-0">
-                                    <a href="#" class="mr-2">Admin</a>
-                                    <a href="#" class="meta-chat"><span class="icon-chat"></span> 3</a>
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-3 ftco-animate">
-                    <div class="blog-entry">
-                        <a href="blog-single.html" class="block-20 d-flex align-items-end justify-content-end" style="background-image: url('images/arav.jpg');">
-                            <div class="meta-date text-center p-2">
-                                <span class="day">18</span>
-                                <span class="mos">September</span>
-                                <span class="yr">2019</span>
-                            </div>
-                        </a>
-                        <div class="text bg-white p-4">
-                            <h3 class="heading"><a href="#">Scary Thing That You Don’t Get Enough Sleep</a></h3>
-                            <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-                            <div class="d-flex align-items-center mt-4">
-                                <p class="mb-0"><a href="#" class="btn btn-primary">Read More <span class="ion-ios-arrow-round-forward"></span></a></p>
-                                <p class="ml-auto mb-0">
-                                    <a href="#" class="mr-2">Admin</a>
-                                    <a href="#" class="meta-chat"><span class="icon-chat"></span> 3</a>
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-3 ftco-animate">
-                    <div class="blog-entry">
-                        <a href="blog-single.html" class="block-20 d-flex align-items-end justify-content-end" style="background-image: url('images/rijan.jpg');">
-                            <div class="meta-date text-center p-2">
-                                <span class="day">18</span>
-                                <span class="mos">September</span>
-                                <span class="yr">2019</span>
-                            </div>
-                        </a>
-                        <div class="text bg-white p-4">
-                            <h3 class="heading"><a href="#">Scary Thing That You Don’t Get Enough Sleep</a></h3>
-                            <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-                            <div class="d-flex align-items-center mt-4">
-                                <p class="mb-0"><a href="#" class="btn btn-primary">Read More <span class="ion-ios-arrow-round-forward"></span></a></p>
-                                <p class="ml-auto mb-0">
-                                    <a href="#" class="mr-2">Admin</a>
-                                    <a href="#" class="meta-chat"><span class="icon-chat"></span> 3</a>
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                @endforeach
             </div>
         </div>
     </section>

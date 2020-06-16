@@ -63,19 +63,12 @@
                     <h2 class="normal">
                         New to {{getSiteSetting('site_title') != null? getSiteSetting('site_title'): ''}} ?
                     </h2>
-                    {{--<p class="p-b-20">--}}
-                        {{--Sign up Now! for {{ config('app.site_name') }} accounts, it's free..--}}
-                    {{--</p>--}}
-                    <a href="{{url('student-signup')}}" class="btn btn-primary" target="_blank">
-                        Student Registration
-                    </a>
-                    <a href="{{route('recruiter_register')}}" class="btn btn-primary" style="float: right; margin-right: 40px;">
+                    <p class="p-b-20">
+                        <a href="#">Sign up Now! for</a> {{ config('app.site_name') }} accounts, it's free..
+                    </p>
+                    <a href="#" class="btn btn-primary" >
                         Recruiter Registration
                     </a>
-
-                    {{--<a data-toggle="modal" href="#register-modal" class="btn btn-info btn-cons" title="Register" id="js-register-button">--}}
-                        {{--Register--}}
-                    {{--</a>--}}
                 </div>
             </div>
         </div>

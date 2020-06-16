@@ -33,7 +33,25 @@
                 </ul>
             </li>
 
-
+            <li class="start ">
+                <a href="javascript:void(0)"><i class="material-icons">web</i>
+                    <span class="title">CMS</span> <span class="selected"></span> <span class="arrow "></span>
+                </a>
+                <ul class="sub-menu">
+                    <li><a href="{{route('dashboard.banners.index')}}">Banners Management</a></li>
+                    <li><a href="{{route('dashboard.posts.index')}}">Contents Management</a></li>
+                    <li><a href="{{route('dashboard.services.index')}}">Services Management</a></li>
+                    <li><a href="{{route('dashboard.testimonials.index')}}">Testimonials Management</a></li>
+                </ul>
+            </li>
+            <li class="start ">
+                <a href="javascript:void(0)"><i class="material-icons">web</i>
+                    <span class="title">Setting</span> <span class="selected"></span> <span class="arrow "></span>
+                </a>
+                <ul class="sub-menu">
+                    <li><a href="{{route('dashboard.news.index')}}">Blogs</a></li>
+                </ul>
+            </li>
         </ul>
         <div class="clearfix"></div>
         <!-- END SIDEBAR MENU -->

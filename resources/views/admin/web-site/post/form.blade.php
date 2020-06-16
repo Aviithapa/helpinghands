@@ -6,7 +6,7 @@
 
 <div class="grid simple ">
     <div class="grid-title">
-        <h4>Post Info</h4>
+        <h4>Content Info</h4>
         <div class="tools">
             <a href="javascript:;" class="collapse"></a>
         </div>

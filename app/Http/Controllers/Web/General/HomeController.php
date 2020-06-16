@@ -94,7 +94,17 @@ class HomeController extends BaseController
         $slug = $slug ? $slug : 'index';
         $file_path = resource_path() . DIRECTORY_SEPARATOR . 'views' . DIRECTORY_SEPARATOR . 'web/pages' . DIRECTORY_SEPARATOR . $slug . '.blade.php';
         if (file_exists($file_path)) {
-            return view('web.pages.' . $slug);
+            switch ($slug) {
+                case 'index':
+                    $this->view_data['banners'] = $this->postRepository->findBy('type', 'homepage_banner', '=',false,3);
+                    $this->view_data['services'] = $this->postRepository->findBy('type', 'services', '=',false,3);
+                    $this->view_data['blogs'] = $this->postRepository->findBy('type', 'news', '=',false,4);
+                    break;
+                case 'about':
+                    $this->view_data['testimonial'] = $this->postRepository->findBy('type', 'testimonial', '=');
+                    break;
+            }
+                    return view('web.pages.' . $slug, $this->view_data);
         }
         // 3. No page exist (404)
         return view('web.pages.404', $this->view_data);

@@ -1,7 +1,7 @@
 @extends('admin.layout.app')
 
 @section('content')
-    @include('admin.partials.common.page-title', ['page_title' => 'Create New Post'])
+    @include('admin.partials.common.page-title', ['page_title' => 'Create New Content'])
     <div>
         <div class="row-fluid">
             <div class="span12">
