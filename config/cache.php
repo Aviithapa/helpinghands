@@ -1,5 +1,7 @@
 <?php
 
+use Psy\Util\Str;
+
 return [
 
     /*
