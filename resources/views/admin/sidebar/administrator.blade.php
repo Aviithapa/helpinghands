@@ -40,6 +40,8 @@
                 <ul class="sub-menu">
                     <li><a href="{{route('dashboard.banners.index')}}">Banners Management</a></li>
                     <li><a href="{{route('dashboard.posts.index')}}">Contents Management</a></li>
+                    <li><a href="{{route('dashboard.events.index')}}">Events Management</a></li>
+                    <li><a href="{{route('dashboard.pages.index')}}">Pages Management</a></li>
                     <li><a href="{{route('dashboard.services.index')}}">Services Management</a></li>
                     <li><a href="{{route('dashboard.testimonials.index')}}">Testimonials Management</a></li>
                 </ul>

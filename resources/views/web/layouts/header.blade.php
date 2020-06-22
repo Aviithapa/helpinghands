@@ -38,9 +38,14 @@
                     <li class="nav-item"><a href="{{url('events')}}" class="nav-link">Events</a></li>
                     <li class="nav-item"><a href="{{url('blog')}}" class="nav-link">Blog</a></li>
                     <li class="nav-item"><a href="{{url('contact')}}" class="nav-link">Contact</a></li>
+{{--                    <li class="nav-item"><a href="{{url('SingleEvents')}}" class="nav-link">Single Events</a></li>--}}
+{{--                    <li class="nav-item"><a href="{{url('single-blog')}}" class="nav-link">Single Blog</a></li>--}}
                 </ul>
             </div>
         </div>
     </nav>
 </header>
 <!-- header-end -->
+@push('scripts')
+
+    @endpush

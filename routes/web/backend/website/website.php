@@ -56,6 +56,26 @@ Route::group(['namespace' => 'WebSite'], function () {
         ]
     ]);
 
+    Route::resource('events', 'EventController', [
+        'names' => [
+            'index' => 'dashboard.events.index',
+            'create' => 'dashboard.events.create',
+            'store' => 'dashboard.events.store',
+            'edit' => 'dashboard.events.edit',
+            'update' => 'dashboard.events.update',
+            'destroy' => 'dashboard.events.destroy',
+        ]
+    ]);
+    Route::resource('pages', 'PagesController', [
+        'names' => [
+            'index' => 'dashboard.pages.index',
+            'create' => 'dashboard.pages.create',
+            'store' => 'dashboard.pages.store',
+            'edit' => 'dashboard.pages.edit',
+            'update' => 'dashboard.pages.update',
+            'destroy' => 'dashboard.pages.destroy',
+        ]
+    ]);
 
 
 });
