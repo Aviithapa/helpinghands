@@ -1,16 +1,15 @@
 <?php
 
 
-
-namespace App\Modules\Backend\Website\Post\Requests;
+namespace App\Modules\Backend\Website\Event\Requests;
 
 use App\Modules\Framework\Request;
 
-class CreatePostRequest extends Request
+class CreateEventRequest extends Request
 {
 
     public function rules()
-    {
+     {
         return [
 
         ];

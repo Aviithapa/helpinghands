@@ -51,6 +51,8 @@ class Post extends Model
             return imageNotFound();
         }
     }
+
+
     public function getLogoImage(){
         if(isset($this->logo_image)) {
             return uploadedAsset('logo_image', $this->logo_image);

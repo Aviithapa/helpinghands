@@ -123,6 +123,7 @@ class PostController extends BaseController
     public function update(UpdatePostRequest $updatePostRequest, $id)
     {
         $this->authorize('update', $this->postRepository->getModel());
+        $slug=$this->postRepository->findById($id)['slug'];
         $data = $updatePostRequest->all();
         $data['image']=$data['post_pic'];
         try {

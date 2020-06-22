@@ -1,12 +1,11 @@
 <?php
 
-
-namespace App\Modules\Backend\Website\Post\Requests;
+namespace App\Modules\Backend\Website\Event\Requests;
 
 use App\Modules\Framework\Request;
 use Illuminate\Validation\Rule;
 
-class UpdatePostRequest extends Request
+class UpdateEventRequest extends Request
 {
 
     public function rules()

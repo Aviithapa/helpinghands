@@ -12,6 +12,7 @@ use App\Modules\Backend\Disciplines\Discipline\Repositories\DisciplineRepository
 use App\Modules\Backend\Levels\Level\Repositories\LevelRepository;
 use App\Modules\Backend\Schools\School\Repositories\SchoolRepository;
 use App\Modules\Backend\Schools\SchoolProgram\Repositories\SchoolProgramRepository;
+use App\Modules\Backend\Website\Event\Repositories\EventRepository;
 use App\Modules\Backend\Website\Post\Repositories\PostRepository;
 use App\Modules\Frontend\Website\Slider\Repositories\SliderRepository;
 use App\Save;
@@ -27,7 +28,7 @@ use Models;
 
 class HomeController extends BaseController
 {
-    private $sliderRepository, $view_data, $postRepository, $disciplineRepository, $level, $countryRepository, $schoolRepository;
+    private $sliderRepository, $view_data, $postRepository,$eventRepository, $disciplineRepository, $level, $countryRepository, $schoolRepository;
     private $schoolProgramRepository;
     private $roleRepository;
     private $userRepository;
@@ -37,13 +38,14 @@ class HomeController extends BaseController
                                 PostRepository $postRepository,
                                 RoleRepository $roleRepository,
                                 UserRepository $userRepository,
-                                Request $request)
+                                Request $request,EventRepository $eventRepository)
     {
         $this->sliderRepository = $sliderRepository;
         $this->postRepository = $postRepository;
         $this->roleRepository = $roleRepository;
         $this->userRepository = $userRepository;
         $this->request = $request;
+        $this->eventRepository=$eventRepository;
 
 
         parent::__construct();
@@ -92,6 +94,8 @@ class HomeController extends BaseController
     public function slug($slug = null, Request $request)
     {
         $slug = $slug ? $slug : 'index';
+        $this->view_data['pageContent'] = $this->postRepository->findBySlug($slug, false);
+        $this->view_data['Event'] = $this->eventRepository->findBy('type', 'events', '=', false, 6);
         $file_path = resource_path() . DIRECTORY_SEPARATOR . 'views' . DIRECTORY_SEPARATOR . 'web/pages' . DIRECTORY_SEPARATOR . $slug . '.blade.php';
         if (file_exists($file_path)) {
             switch ($slug) {
@@ -99,9 +103,25 @@ class HomeController extends BaseController
                     $this->view_data['banners'] = $this->postRepository->findBy('type', 'homepage_banner', '=',false,3);
                     $this->view_data['services'] = $this->postRepository->findBy('type', 'services', '=',false,3);
                     $this->view_data['blogs'] = $this->postRepository->findBy('type', 'news', '=',false,4);
+
                     break;
                 case 'about':
                     $this->view_data['testimonial'] = $this->postRepository->findBy('type', 'testimonial', '=');
+                    break;
+                case 'events':
+                    $this->view_data['testimonial'] = $this->postRepository->findBy('type', 'testimonial', '=');
+                    break;
+                case 'blog':
+                    $this->view_data['testimonial'] = $this->postRepository->findBy('type', 'testimonial', '=');
+                    break;
+                case 'contact':
+                    $this->view_data['testimonial'] = $this->postRepository->findBy('type', 'testimonial', '=');
+                    break;
+                case 'SingleEvents':
+                    $this->view_data['company_info'] = $this->postRepository->findById(2);
+                    $this->view_data['testimonials'] = $this->postRepository->findBy('type', 'testimonial', '=');
+                    $this->view_data['services'] = $this->postRepository->findBy('type', 'services', '=', false, 6);
+                    $this->view_data['Subscribe'] = $this->postRepository->findById(9);
                     break;
             }
                     return view('web.pages.' . $slug, $this->view_data);
@@ -111,8 +131,27 @@ class HomeController extends BaseController
 
     }
 
+     public function SingleEvents($slug = null, Request $request){
+        $slug = $slug ? $slug : 'abcd';
+        $this->view_data['pageContent'] = $this->postRepository->findBySlug('/SingleEvents/'.$slug, false);
+        $this->view_data['Event'] = $this->eventRepository->findBy('slug', $slug, '=', false, 6);
+        $this->view_data['Events'] = $this->postRepository->findBy('type', 'events', '=', false, 3);
 
 
+        return view('web.pages.SingleEvents' , $this->view_data);
+
+    }
+    public function singleBlog($slug = null, Request $request){
+
+        $slug = $slug ? $slug : 'hello';
+        $this->view_data['pageContent'] = $this->postRepository->findBySlug('/single-blog/'.$slug, false);
+        $this->view_data['blog'] = $this->postRepository->findBy('slug', $slug, '=', false, 6);
+        $this->view_data['blogs'] = $this->postRepository->findBy('type', 'news', '=', false, 3);
+
+
+        return view('web.pages.single-blog' , $this->view_data);
+
+    }
 
 
 

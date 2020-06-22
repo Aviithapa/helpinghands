@@ -47,93 +47,23 @@
     <section class="ftco-section ftco-no-pt ftco-no-pb bg-light mt-10">
         <div class="container-fluid" style="padding:50px;">
             <div class="row no-gutters">
+                @foreach($Event as $event)
                 <div class="col-md-3 d-flex">
                     <div class="blog-entry ftco-animate">
-                        <a href="single.html" class="img" style="background-image: url(images/image_4.jpg);"></a>
+                        <a href="{{url('SingleEvents/'.$event->slug)}}" class="img" style="background-image: url({{$event->getImage()}});"></a>
                         <div class="text p-4">
-                            <h3 class="mb-2"><a href="single.html">A Loving Heart is the Truest Wisdom</a></h3>
+                            <h3 class="mb-2"><a href="{{url('SingleEvents/'.$event->slug)}}">{{$event->title}}</a></h3>
                             <div class="meta-wrap">
                                 <p class="meta">
-                                    <span><i class="icon-calendar mr-2"></i>Sept. 10, 2019</span>
-                                    <span><a href="single.html"><i class="icon-folder-o mr-2"></i>Travel</a></span>
-                                    <span><i class="icon-comment2 mr-2"></i>5 Comment</span>
+                                    <span><i class="icon-calendar mr-2"></i>{{$event->start_date}}</span>
                                 </p>
                             </div>
-                            <p class="mb-4">A small river named Duden flows by their place and supplies</p>
-                            <p><a href="#" class="btn-custom">Read More <span class="ion-ios-arrow-forward"></span></a></p>
+                            <p class="mb-4">{{$event->content}}</p>
+                            <p><a href="{{url('SingleEvents/'.$event->slug)}}" class="btn-custom">Read More <span class="ion-ios-arrow-forward"></span></a></p>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-3 d-flex">
-                    <div class="blog-entry ftco-animate">
-                        <a href="single.html" class="img" style="background-image: url(images/image_7.jpg);"></a>
-                        <div class="text p-4">
-                            <h3 class="mb-2"><a href="single.html">A Loving Heart is the Truest Wisdom</a></h3>
-                            <div class="meta-wrap">
-                                <p class="meta">
-                                    <span><i class="icon-calendar mr-2"></i>Sept. 10, 2019</span>
-                                    <span><a href="single.html"><i class="icon-folder-o mr-2"></i>Travel</a></span>
-                                    <span><i class="icon-comment2 mr-2"></i>5 Comment</span>
-                                </p>
-                            </div>
-                            <p class="mb-4">A small river named Duden flows by their place and supplies</p>
-                            <p><a href="#" class="btn-custom">Read More <span class="ion-ios-arrow-forward"></span></a></p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-3 d-flex">
-                    <div class="blog-entry ftco-animate">
-                        <a href="single.html" class="img" style="background-image: url(images/image_8.jpg);"></a>
-                        <div class="text p-4">
-                            <h3 class="mb-2"><a href="single.html">A Loving Heart is the Truest Wisdom</a></h3>
-                            <div class="meta-wrap">
-                                <p class="meta">
-                                    <span><i class="icon-calendar mr-2"></i>Sept. 10, 2019</span>
-                                    <span><a href="single.html"><i class="icon-folder-o mr-2"></i>Travel</a></span>
-                                    <span><i class="icon-comment2 mr-2"></i>5 Comment</span>
-                                </p>
-                            </div>
-                            <p class="mb-4">A small river named Duden flows by their place and supplies</p>
-                            <p><a href="#" class="btn-custom">Read More <span class="ion-ios-arrow-forward"></span></a></p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-3 d-flex">
-                    <div class="blog-entry ftco-animate">
-                        <a href="single.html" class="img" style="background-image: url(images/image_9.jpg);"></a>
-                        <div class="text p-4">
-                            <h3 class="mb-2"><a href="single.html">A Loving Heart is the Truest Wisdom</a></h3>
-                            <div class="meta-wrap">
-                                <p class="meta">
-                                    <span><i class="icon-calendar mr-2"></i>Sept. 10, 2019</span>
-                                    <span><a href="single.html"><i class="icon-folder-o mr-2"></i>Travel</a></span>
-                                    <span><i class="icon-comment2 mr-2"></i>5 Comment</span>
-                                </p>
-                            </div>
-                            <p class="mb-4">A small river named Duden flows by their place and supplies</p>
-                            <p><a href="#" class="btn-custom">Read More <span class="ion-ios-arrow-forward"></span></a></p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-3 d-flex">
-                    <div class="blog-entry ftco-animate">
-                        <a href="single.html" class="img" style="background-image: url(images/image_10.jpg);"></a>
-                        <div class="text p-4">
-                            <h3 class="mb-2"><a href="single.html">A Loving Heart is the Truest Wisdom</a></h3>
-                            <div class="meta-wrap">
-                                <p class="meta">
-                                    <span><i class="icon-calendar mr-2"></i>Sept. 10, 2019</span>
-                                    <span><a href="single.html"><i class="icon-folder-o mr-2"></i>Travel</a></span>
-                                    <span><i class="icon-comment2 mr-2"></i>5 Comment</span>
-                                </p>
-                            </div>
-                            <p class="mb-4">A small river named Duden flows by their place and supplies</p>
-                            <p><a href="#" class="btn-custom">Read More <span class="ion-ios-arrow-forward"></span></a></p>
-                        </div>
-                    </div>
-                </div>
-
+                    @endforeach
             </div>
         </div>
     </section>
@@ -145,56 +75,56 @@
             <div class="row no-gutters">
                 <div class="col-md-3 d-flex align-items-stretch">
                     <div class="consultation w-100 text-center px-4 px-md-5">
-                        <h3 class="mb-4">Dental Services</h3>
-                        <p>A small river named Duden flows by their place and supplies</p>
-                        <a href="#" class="btn-custom">See Services</a>
+                        <h3 class="mb-4">Our Motive</h3>
+                        <p>If you can you must have.</p>
+                        <a href="#" class="btn-custom">Make everyone Laugh</a>
                     </div>
                 </div>
                 <div class="col-md-6 d-flex align-items-stretch">
                     <div class="consultation consul w-100 px-4 px-md-5">
                         <div class="text-center">
-                            <h3 class="mb-4">Free Consultation</h3>
+                            <h3 class="mb-4">Apply For Help</h3>
                         </div>
                         <form action="#" class="appointment-form">
                             <div class="row">
                                 <div class="col-md-12 col-lg-6 col-xl-4">
                                     <div class="form-group">
-                                        <input type="text" class="form-control" placeholder="First Name">
+                                        <input type="text" class="form-control" placeholder="FullName">
                                     </div>
                                 </div>
                                 <div class="col-md-12 col-lg-6 col-xl-4">
                                     <div class="form-group">
-                                        <input type="text" class="form-control" placeholder="Last Name">
+                                        <input type="text" class="form-control" placeholder="Email">
                                     </div>
                                 </div>
                                 <div class="col-md-12 col-lg-6 col-xl-4">
                                     <div class="form-group">
-                                        <div class="form-field">
-                                            <div class="select-wrap">
+                                        <input type="text" class="form-control" placeholder="Contact Number">
+                                    </div>
+                                </div>
 
-                                            </div>
+                                <div class="col-md-12 col-lg-6 col-xl-4">
+                                    <div class="form-group">
+                                        <div class="input-wrap">
+                                            <select class="form-control" value="Problem" >
+                                                <option style="color: black">Mental Stress</option>
+                                                <option style="color: black">Economical Problem</option>
+                                                <option style="color: black">Family Problem</option>
+                                                <option style="color: black">Depression</option>
+                                            </select>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="col-md-12 col-lg-6 col-xl-4">
                                     <div class="form-group">
                                         <div class="input-wrap">
-                                            <div class="icon"><span class="ion-md-calendar"></span></div>
-                                            <input type="text" class="form-control appointment_date" placeholder="Date">
+                                            <input type="text" class="form-control" placeholder="Message">
                                         </div>
                                     </div>
                                 </div>
                                 <div class="col-md-12 col-lg-6 col-xl-4">
                                     <div class="form-group">
-                                        <div class="input-wrap">
-                                            <div class="icon"><span class="ion-ios-clock"></span></div>
-                                            <input type="text" class="form-control appointment_time" placeholder="Time">
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-12 col-lg-6 col-xl-4">
-                                    <div class="form-group">
-                                        <input type="submit" value="Appointment" class="btn btn-secondary py-2 px-4">
+                                        <input type="submit" value="Help" class="btn btn-secondary py-2 px-4">
                                     </div>
                                 </div>
                             </div>
@@ -204,7 +134,7 @@
                 <div class="col-md-3 d-flex align-items-stretch">
                     <div class="consultation w-100 text-center px-4 px-md-5">
                         <h3 class="mb-4">Find A Mentor</h3>
-                        <p>A small river named Duden flows by their place and supplies</p>
+                        <p>We are always here to help the people who really wants the Help.</p>
                         <a href="#" class="btn-custom">Meet our Members</a>
                     </div>
                 </div>
@@ -228,7 +158,7 @@
                 @foreach($blogs as $blog)
                 <div class="col-md-3 ftco-animate">
                     <div class="blog-entry">
-                        <a href="blog-single.html" class="block-20 d-flex align-items-end justify-content-end" style="background-image: url({{$blog->getNewsImage()}});">
+                        <a href="{{url(('single-blog/'.$blog->slug))}}" class="block-20 d-flex align-items-end justify-content-end" style="background-image: url({{$blog->getNewsImage()}});">
                         </a>
                         <div class="text bg-white p-4" style="background-color: #46b7de;">
                             <h3 class="heading"><a href="#">{{$blog->excerpt}}</a></h3>

@@ -1,10 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: Saurav KC
- * Date: 5/29/2018
- * Time: 7:58 PM
- */
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
@@ -35,6 +29,7 @@ class FrontendDependencyInjectionServiceProvider extends ServiceProvider
             \App\Modules\Frontend\Website\Slider\Repositories\SliderRepository::class,
             \App\Modules\Frontend\Website\Slider\Repositories\EloquentSliderRepository::class
         );
+
 
     }
 }

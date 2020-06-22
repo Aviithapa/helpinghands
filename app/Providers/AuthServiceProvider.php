@@ -5,6 +5,7 @@ namespace App\Providers;
 
 use App\Models\Auth\Permission;
 use App\Models\Auth\Role;
+use App\Models\Website\Event;
 use App\Models\Website\SiteSetting;
 use App\Models\Website\Slider;
 use App\Models\Website\GetTouch;
@@ -13,6 +14,7 @@ use App\Modules\Backend\Authentication\Permission\Policies\PermissionPolicy;
 use App\Modules\Backend\Authentication\Role\Policies\RolePolicy;
 use App\Modules\Backend\Authentication\User\Policies\UserPolicy;
 use App\Modules\Backend\Settings\Setting\Policies\SiteSettingPolicy;
+use App\Modules\Backend\Website\Event\Policies\EventPolicy;
 use App\Modules\Backend\Website\Slider\Policies\SliderPolicy;
 use App\Modules\Backend\Website\GetTouch\Policies\GetTouchPolicy;
 use Illuminate\Auth\Access\Gate;
@@ -35,6 +37,7 @@ class AuthServiceProvider extends ServiceProvider
         SiteSetting::class => SiteSettingPolicy::class,
         Slider::class => SliderPolicy::class,
         GetTouch::class=> GetTouchPolicy::class,
+        Event::class=>EventPolicy::class,
 
     ];
 
