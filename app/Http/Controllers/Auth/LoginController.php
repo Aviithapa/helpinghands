@@ -69,8 +69,8 @@ class LoginController extends Controller
             if(Auth::user()->mainRole()->name ==='administrator'){
                 return redirect()->intended('dashboard');
 
-            }elseif (Auth::user()->mainRole()->name ==='recruiter'){
-                    return redirect()->route('recruiters.index');
+            }elseif (Auth::user()->mainRole()->name ==='eventorganizer'){
+                    return redirect()->intended('dashboard');
             }
             else{
                 Auth::logout();

@@ -25,8 +25,8 @@ class DashBoardController extends BaseController
                 $inactive_users = $this->userRepository->getAllInActive();
                 return $this->view('dashboard.administrator', compact('inactive_users'));
                 break;
-            case 'hotel_agent':
-                return $this->view('dashboard.hotel-agent');
+            case 'eventorganizer':
+                return $this->view('dashboard.default');
                 break;
             case 'travel_agent':
                 return $this->view('dashboard.travel-agent');
@@ -45,5 +45,5 @@ class DashBoardController extends BaseController
 
         }
     }
-   
+
 }

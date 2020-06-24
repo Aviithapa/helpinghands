@@ -22,6 +22,9 @@
     @case('administrator')
     @include('admin.sidebar.administrator')
     @break
+    @case("eventorganizer")
+    @include('admin.sidebar.eventorganizer')
+    @break
     @default
     @include('admin.sidebar.default')
 @endswitch
