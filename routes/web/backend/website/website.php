@@ -76,6 +76,15 @@ Route::group(['namespace' => 'WebSite'], function () {
             'destroy' => 'dashboard.pages.destroy',
         ]
     ]);
-
+    Route::resource('pages', 'PagesController', [
+        'names' => [
+            'index' => 'dashboard.pages.index',
+            'create' => 'dashboard.pages.create',
+            'store' => 'dashboard.pages.store',
+            'edit' => 'dashboard.pages.edit',
+            'update' => 'dashboard.pages.update',
+            'destroy' => 'dashboard.pages.destroy',
+        ]
+    ]);
 
 });
