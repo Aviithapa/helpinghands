@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Web\General;
 
 use App\Http\Controllers\Web\BaseController;
 use App\Models\Website\GetTouch;
+use App\Models\Website\Help;
 use App\Models\Website\StoreRequestQuote;
 use App\Modules\Backend\Authentication\Role\Repositories\RoleRepository;
 use App\Modules\Backend\Authentication\User\Repositories\UserRepository;
@@ -17,6 +18,7 @@ use App\Modules\Backend\Website\Post\Repositories\PostRepository;
 use App\Modules\Frontend\Website\Slider\Repositories\SliderRepository;
 use App\Save;
 use http\Exception\UnexpectedValueException;
+use http\Message\Body;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Mail;
@@ -157,7 +159,21 @@ class HomeController extends BaseController
     }
 
     public function Help(Request $request){
+        try {
+            $help = new Help();
+            $help->name = $request->name;
+            $help->phone = $request->phone;
+            $help->email = $request->email;
+            $help->problem = $request->problem;
+            $help->message = $request->message;
+            $help->save();
+            session()->flash('success',"We will Contact you soon");
+            return  redirect('/');
 
+
+        }catch (\UnexpectedValueException $e){
+
+        }
     }
 
 }

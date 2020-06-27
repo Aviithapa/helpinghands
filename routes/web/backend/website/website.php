@@ -86,6 +86,17 @@ Route::group(['namespace' => 'WebSite'], function () {
             'destroy' => 'dashboard.pages.destroy',
         ]
     ]);
+    Route::resource('help', 'HelpController', [
+        'names' => [
+            'index' => 'dashboard.help.index',
+            'create' => 'dashboard.help.create',
+            'store' => 'dashboard.help.store',
+            'edit' => 'dashboard.help.edit',
+            'update' => 'dashboard.help.update',
+            'destroy' => 'dashboard.help.destroy',
+            'show'=>'dashboard.help.show',
+        ]
+    ]);
 
     Route::match(['put', 'patch'], 'events/approve/{event}', 'EventController@approve')->name('dashboard.events.approve');
 

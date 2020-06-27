@@ -69,6 +69,14 @@
                     <li><a href="{{route('dashboard.news.index')}}">Blogs</a></li>
                 </ul>
             </li>
+
+            <li>
+                <a href="{{route('dashboard.help.index')}}">
+                    <i class="fa fa-hands-helping"></i>
+                    <span class="title">Help Request</span>
+                </a>
+            </li>
+
         </ul>
         <div class="clearfix"></div>
         <!-- END SIDEBAR MENU -->

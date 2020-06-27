@@ -4,7 +4,10 @@
 namespace App\Models\Website;
 
 
-class Help
-{
+use Illuminate\Database\Eloquent\Model;
 
+class Help extends Model
+{
+    protected $table = 'help';
+    protected $fillable=['name','email','phone','problem','message'];
 }

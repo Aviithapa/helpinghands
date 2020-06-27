@@ -87,32 +87,34 @@
                         <div class="text-center">
                             <h3 class="mb-4">Apply For Help</h3>
                         </div>
-                        <form action="#" class="appointment-form">
+                        <form action="{{url('help')}}" class="appointment-form" method="post">
+                            {{csrf_field() }}
                             <div class="row">
                                 <div class="col-md-12 col-lg-6 col-xl-4">
                                     <div class="form-group">
-                                        <input type="text" class="form-control" placeholder="FullName" name="name">
+                                        <input type="text" class="form-control" placeholder="Full Name" name="name" required>
                                     </div>
                                 </div>
                                 <div class="col-md-12 col-lg-6 col-xl-4">
                                     <div class="form-group">
-                                        <input type="text" class="form-control" placeholder="Email" name="email">
+                                        <input type="email" class="form-control" placeholder="Email" name="email"  required>
                                     </div>
                                 </div>
                                 <div class="col-md-12 col-lg-6 col-xl-4">
                                     <div class="form-group">
-                                        <input type="text" class="form-control" placeholder="Contact Number" name="phoneNumber">
+                                        <input type="number" class="form-control" placeholder="Contact Number" name="phone" required>
                                     </div>
                                 </div>
 
                                 <div class="col-md-12 col-lg-6 col-xl-4">
                                     <div class="form-group">
                                         <div class="input-wrap">
-                                            <select class="form-control" value="Problem" name="problem">
-                                                <option style="color: black">Mental Stress</option>
-                                                <option style="color: black">Economical Problem</option>
-                                                <option style="color: black">Family Problem</option>
-                                                <option style="color: black">Depression</option>
+                                            <select class="form-control" name="problem" required>
+                                                <option style="color: black" value="#">Problem</option>
+                                                <option style="color: black" value="MentalStress">Mental Stress</option>
+                                                <option style="color: black" value="EconomicalProblem">Economical Problem</option>
+                                                <option style="color: black" value="FamilyProblem">Family Problem</option>
+                                                <option style="color: black" value="Depression">Depression</option>
                                             </select>
                                         </div>
                                     </div>
@@ -120,7 +122,7 @@
                                 <div class="col-md-12 col-lg-6 col-xl-4">
                                     <div class="form-group">
                                         <div class="input-wrap">
-                                            <input type="text" class="form-control" placeholder="Message" name="message">
+                                            <input type="text" class="form-control" placeholder="Message" name="message" required>
                                         </div>
                                     </div>
                                 </div>
@@ -133,6 +135,7 @@
                         </form>
                     </div>
                 </div>
+
                 <div class="col-md-3 d-flex align-items-stretch">
                     <div class="consultation w-100 text-center px-4 px-md-5">
                         <h3 class="mb-4">Find A Mentor</h3>
@@ -180,6 +183,28 @@
         </div>
     </section>
 
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" role="dialog">
+        <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Sucessful</h4>
+                </div>
+                <div class="modal-body">
+                    <p>Your request have been submited we will contact you soon</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
     <!---End Blog Section--->
 
 
@@ -187,8 +212,11 @@
 @endsection
 
 @push('scripts')
+    @if(session()->flash('success',"We will Contact you soon"))
     <script>
-
+        $(document).ready(function(){
+            $("#myModal").modal('show');
+        });
     </script>
-
+@endif
 @endpush

@@ -5,6 +5,8 @@ namespace App\Providers;
 use App\Models\Website\Post;
 use App\Modules\Backend\Website\Event\Repositories\EloquentEventRepository;
 use App\Modules\Backend\Website\Event\Repositories\EventRepository;
+use App\Modules\Backend\Website\Help\Repositories\EloquentHelpRepository;
+use App\Modules\Backend\Website\Help\Repositories\HelpRepository;
 use App\Modules\Backend\Website\Post\Repositories\EloquentPostRepository;
 use App\Modules\Backend\Website\Post\Repositories\PostRepository;
 use App\Modules\Backend\Website\RequestQuote\Repositories\EloquentGetTouchRepository;
@@ -96,6 +98,11 @@ class DependencyInjectionServiceProvider extends ServiceProvider
         $this->app->bind(
             EventRepository::class,
             EloquentEventRepository::class
+        );
+
+        $this->app->bind(
+            HelpRepository::class,
+            EloquentHelpRepository::class
         );
 
     }
