@@ -87,4 +87,6 @@ Route::group(['namespace' => 'WebSite'], function () {
         ]
     ]);
 
+    Route::match(['put', 'patch'], 'events/approve/{event}', 'EventController@approve')->name('dashboard.events.approve');
+
 });

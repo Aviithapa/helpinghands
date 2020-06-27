@@ -27,13 +27,22 @@
                                 {!! $errors->first('slug', '<div class="text-danger">:message</div>') !!}
                             </div>
                         </div>
-                        <div class="col-md-12 col-lg-12">
+                        <div class="col-md-6 col-lg-6">
                             <div class="form-group">
                                 {!! Form::label('excerpt', 'Excerpt:', ['class' => 'form-label']) !!}
                                 {!! Form::textarea('excerpt', null, ['class' => 'form-control','maxlength'=>'190']) !!}
                                 {!! $errors->first('excerpt', '<div class="text-danger">:message</div>') !!}
                             </div>
                         </div>
+
+                        <div class="col-md-6 col-lg-6">
+                            <div class="form-group">
+                                {!! Form::label('Bank Account', 'Bank Account:', ['class' => 'form-label']) !!}
+                                {!! Form::text('Bank Account', null, ['class' => 'form-control','maxlength'=>'190']) !!}
+                                {!! $errors->first('Bank Account', '<div class="text-danger">:message</div>') !!}
+                            </div>
+                        </div>
+
                         <div class="col-md-12 col-lg-12">
                             <div class="form-group">
                                 {!! Form::label('content', 'Content:', ['class' => 'form-label']) !!}
@@ -63,6 +72,24 @@
                                 {!! $errors->first('end_date', '<div class="text-danger">:message</div>') !!}
                             </div>
                         </div>
+                        @switch ($role)
+                            @case('administrator')
+                            <div class="col-md-6 col-lg-6">
+                                <div class="form-group">
+                                    {!! Form::label('status', 'Status:', ['class' => 'form-label']) !!}
+                                    {!! Form::select('status', getActiveInactiveStatus(), null, ['class' => 'form-control']) !!}
+                                    {!! $errors->first('status', '<div class="text-danger">:message</div>') !!}
+                                </div>
+                            </div>
+                            @break
+                            @default
+
+                            @break
+                            @endswitch
+
+
+
+
 
                     </div>
 
@@ -139,7 +166,7 @@
 
         CKEDITOR.replace( 'ckeditor', {
             // Load the timestamp plugin.
-            // extraPlugins: 'uploadfile'
+            extraPlugins: 'uploadfile'
         });
     </script>
 

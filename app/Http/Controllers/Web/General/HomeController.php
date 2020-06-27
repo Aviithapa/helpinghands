@@ -95,7 +95,7 @@ class HomeController extends BaseController
     {
         $slug = $slug ? $slug : 'index';
         $this->view_data['pageContent'] = $this->postRepository->findBySlug($slug, false);
-        $this->view_data['Event'] = $this->eventRepository->findBy('type', 'events', '=', false, 6);
+        $this->view_data['Event'] = $this->eventRepository->findBy('type', 'events', '=','false','6');
         $file_path = resource_path() . DIRECTORY_SEPARATOR . 'views' . DIRECTORY_SEPARATOR . 'web/pages' . DIRECTORY_SEPARATOR . $slug . '.blade.php';
         if (file_exists($file_path)) {
             switch ($slug) {
@@ -103,15 +103,18 @@ class HomeController extends BaseController
                     $this->view_data['banners'] = $this->postRepository->findBy('type', 'homepage_banner', '=',false,3);
                     $this->view_data['services'] = $this->postRepository->findBy('type', 'services', '=',false,3);
                     $this->view_data['blogs'] = $this->postRepository->findBy('type', 'news', '=',false,4);
-
+                    $this->view_data['blog']=$this->postRepository->findById(5);
                     break;
                 case 'about':
                     $this->view_data['testimonial'] = $this->postRepository->findBy('type', 'testimonial', '=');
                     break;
                 case 'events':
+                    $this->view_data['event'] = $this->eventRepository->findBy('type', 'events', '=');
                     $this->view_data['testimonial'] = $this->postRepository->findBy('type', 'testimonial', '=');
                     break;
                 case 'blog':
+                    $this->view_data['blogs'] = $this->postRepository->findBy('type', 'news', '=',false,4);
+                    $this->view_data['blog']=$this->postRepository->findById(5);
                     $this->view_data['testimonial'] = $this->postRepository->findBy('type', 'testimonial', '=');
                     break;
                 case 'contact':
@@ -153,6 +156,8 @@ class HomeController extends BaseController
 
     }
 
+    public function Help(Request $request){
 
+    }
 
 }

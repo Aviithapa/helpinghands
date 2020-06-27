@@ -48,6 +48,7 @@
         <div class="container-fluid" style="padding:50px;">
             <div class="row no-gutters">
                 @foreach($Event as $event)
+                    @if($event->status=='active')
                 <div class="col-md-3 d-flex">
                     <div class="blog-entry ftco-animate">
                         <a href="{{url('SingleEvents/'.$event->slug)}}" class="img" style="background-image: url({{$event->getImage()}});"></a>
@@ -63,6 +64,7 @@
                         </div>
                     </div>
                 </div>
+                @endif
                     @endforeach
             </div>
         </div>
@@ -89,24 +91,24 @@
                             <div class="row">
                                 <div class="col-md-12 col-lg-6 col-xl-4">
                                     <div class="form-group">
-                                        <input type="text" class="form-control" placeholder="FullName">
+                                        <input type="text" class="form-control" placeholder="FullName" name="name">
                                     </div>
                                 </div>
                                 <div class="col-md-12 col-lg-6 col-xl-4">
                                     <div class="form-group">
-                                        <input type="text" class="form-control" placeholder="Email">
+                                        <input type="text" class="form-control" placeholder="Email" name="email">
                                     </div>
                                 </div>
                                 <div class="col-md-12 col-lg-6 col-xl-4">
                                     <div class="form-group">
-                                        <input type="text" class="form-control" placeholder="Contact Number">
+                                        <input type="text" class="form-control" placeholder="Contact Number" name="phoneNumber">
                                     </div>
                                 </div>
 
                                 <div class="col-md-12 col-lg-6 col-xl-4">
                                     <div class="form-group">
                                         <div class="input-wrap">
-                                            <select class="form-control" value="Problem" >
+                                            <select class="form-control" value="Problem" name="problem">
                                                 <option style="color: black">Mental Stress</option>
                                                 <option style="color: black">Economical Problem</option>
                                                 <option style="color: black">Family Problem</option>
@@ -118,7 +120,7 @@
                                 <div class="col-md-12 col-lg-6 col-xl-4">
                                     <div class="form-group">
                                         <div class="input-wrap">
-                                            <input type="text" class="form-control" placeholder="Message">
+                                            <input type="text" class="form-control" placeholder="Message" name="message">
                                         </div>
                                     </div>
                                 </div>
@@ -149,9 +151,9 @@
         <div class="container-fluid" style="padding:50px;">
             <div class="row justify-content-center mb-5 pb-2">
                 <div class="col-md-8 text-center heading-section ftco-animate">
-                    <span class="subheading">Blog</span>
-                    <h2 class="mb-4">Recent Blogs</h2>
-                    <p>Separated they live in. A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country</p>
+                    <span class="subheading">{{$blog->title}}</span>
+                    <h2 class="mb-4">{{$blog->excerpt}}</h2>
+                    <p>{{$blog->content}}</p>
                 </div>
             </div>
             <div class="row">

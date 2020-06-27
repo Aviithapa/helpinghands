@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Modules\Backend\Authentication\User\Repositories\UserRepository;
+use App\Modules\Backend\Website\Event\Repositories\EventRepository;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
@@ -10,10 +11,12 @@ use Illuminate\Support\Facades\Auth;
 class DashBoardController extends BaseController
 {
     private $userRepository;
+    private $eventRepository;
 
-    public function __construct(UserRepository $userRepository)
+    public function __construct(UserRepository $userRepository,EventRepository $eventRepository)
     {
         $this->userRepository = $userRepository;
+        $this->eventRepository=$eventRepository;
         parent::__construct();
     }
 
@@ -22,8 +25,8 @@ class DashBoardController extends BaseController
         $role = Auth::user()->mainRole()?Auth::user()->mainRole()->name:'default';
         switch ($role) {
             case 'administrator':
-                $inactive_users = $this->userRepository->getAllInActive();
-                return $this->view('dashboard.administrator', compact('inactive_users'));
+                $event_created=$this->eventRepository->getAllInActive();
+                return $this->view('dashboard.administrator', compact('event_created'));
                 break;
             case 'eventorganizer':
                 return $this->view('dashboard.default');

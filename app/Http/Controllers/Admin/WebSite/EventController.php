@@ -9,6 +9,7 @@ use App\Modules\Backend\Website\Event\Requests\CreateEventRequest;
 use App\Modules\Backend\Website\Event\Requests\UpdateEventRequest;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Yajra\DataTables\Facades\DataTables;
 use Illuminate\Contracts\Logging\Log;
 use App;
@@ -31,15 +32,25 @@ class EventController extends BaseController
      */
     public function index()
     {
+        $role = Auth::user()->mainRole()?Auth::user()->mainRole()->name:'default';
+        switch ($role)
+        {
+            case 'administrator':
+                $events = $this->eventRepository->findByDataTable('type','events','=');
+                break;
+            case 'eventorganizer':
+                $events = $this->eventRepository->findByDataTable('user_id',Auth::user()['id'],'=');
+                break;
+
+        }
 
         if(\request()->ajax()) {
-            $events = $this->eventRepository->findByDataTable('type','events','=');
             return DataTables::of($events)
                 ->editColumn('action', function ($events) {
                     $data = $events;
                     $name = 'dashboard.events';
                     $view = false;
-                    return $this->view('partials.common.action', compact('data', 'name', 'view'));
+                    return $this->view('partials.common.action', compact('data', 'name', 'view'))->render();
                 })
                 ->editColumn('events_pic', function ($events) {
                     $url=asset($events->getImage());
@@ -62,8 +73,9 @@ class EventController extends BaseController
      */
     public function create()
     {
-        $this->authorize('create', $this->eventRepository->getModel());
-        return $this->view('web-site.events.create');
+
+        $role=Auth::user()->mainRole()?Auth::user()->mainRole()->name:'default';
+        return $this->view('web-site.events.create',compact('role'));
     }
 
     /**
@@ -145,6 +157,28 @@ class EventController extends BaseController
             $this->log->error('Events update : '.$e->getMessage());
             session()->flash('danger', 'Oops! Something went wrong.');
             return redirect()->back()->withInput();
+        }
+    }
+
+
+    public function approve(Request $request, $id)
+    {
+        $this->authorize('update',$this->eventRepository->getModel());
+        $data = $request->only('status');
+        try {
+
+            $event = $this->eventRepository->update($data, $id);
+            if($event == false) {
+                session()->flash('danger', 'Oops! Something went wrong.');
+                return redirect()->back()->withInput();
+            }
+            session()->flash('success', 'Events have been added Sucessfully');
+            return redirect()->back();
+        }
+        catch (\Exception $e) {
+            $this->log->error('User update : '.$e->getMessage());
+            session()->flash('danger', 'Oops! Something went wrong.');
+            return redirect()->back();
         }
     }
 

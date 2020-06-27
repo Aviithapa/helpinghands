@@ -9,7 +9,7 @@ use Illuminate\Database\Eloquent\Model;
 class Event extends Model
 {
     protected $table = 'events';
-    protected $fillable=['title','content','excerpt','image','type','slug','start_date','end_date'];
+    protected $fillable=['title','content','excerpt','image','type','slug','start_date','end_date','status','Bank Account'];
 
     public function getImage(){
         if(isset($this->image)) {
@@ -19,4 +19,7 @@ class Event extends Model
             return imageNotFound();
         }
     }
+
+
+
 }

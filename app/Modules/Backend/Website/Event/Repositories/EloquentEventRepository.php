@@ -29,7 +29,13 @@ class EloquentEventRepository extends RepositoryImplementation implements EventR
             ->get();
 
     }
-
+    public function getAllInActive()
+    {
+        return $this->getModel()->where('status', 'in-active')->get();
+    }
+    public function getActiveEvent(){
+        return $this->getModel()->where('status','active')->get();
+    }
 
 
 

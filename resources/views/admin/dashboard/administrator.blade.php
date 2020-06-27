@@ -81,56 +81,40 @@
             <div class="col-md-12 col-sm-12">
                 <div class="tiles white">
                     <div class="tiles-body">
-                        <div class="tiles-title"> <strong>New User Requests</strong></div>
+                        <div class="tiles-title"> <strong>New Events Requests</strong></div>
                         <br>
                         <table class="table table-hover table-condensed" id="basic-data-table">
                             <thead>
                             <tr>
                                 <th>S.N</th>
-                                <th>Name</th>
-                                <th>Info</th>
-                                <th>Contact</th>
-                                <th>Company</th>
+                                <th>Title</th>
+                                <th>Content</th>
+                                <th>Status</th>
                                 <th>Action</th>
                             </tr>
                             </thead>
                             <tbody>
-                            @foreach($inactive_users as $key => $inactive_user)
+                            @foreach($event_created as $key => $event_created)
                                 <tr>
                                     <td>{{$key+1}}</td>
                                     <td>
-                                        {{$inactive_user->name}}
-                                        <br>
-                                        <strong>
-                                            {{$inactive_user->mainRole()?$inactive_user->mainRole()->display_name:''}}
-                                        </strong>
+                                        {{$event_created->title}}
                                     </td>
                                     <td>
-                                        {{$inactive_user->address}} <br>
-                                        {{$inactive_user->email}} <br>
-                                        {{$inactive_user->phone_number}} <br>
-                                        {{$inactive_user->mobile_number}} <br>
+                                        {{$event_created->content}}
                                     </td>
                                     <td>
-                                        {{$inactive_user->contact_name}} <br>
-                                        {{$inactive_user->contact_email}} <br>
-                                        {{$inactive_user->contact_phone_number}} <br>
-                                        {{$inactive_user->contact_mobile_umber}} <br>
+                                        {{$event_created->status}}
                                     </td>
                                     <td>
-                                        {{$inactive_user->company_name}} <br>
-                                        {{$inactive_user->company_registration_number}} <br>
-                                        {{$inactive_user->vat_pan_no}} <br>
-                                    </td>
-                                    <td>
-                                        {{ Form::model($inactive_user, ['url' => route('dashboard.users.approve', $inactive_user->id), 'method' => 'PUT','files' => true]) }}
+                                        {{ Form::model($event_created, ['url' => route('dashboard.events.approve', $event_created->id), 'method' => 'PUT','files' => true]) }}
                                         <input type="hidden" value="active" name="status" id="status">
                                         <button type="submit" class="btn btn-success btn-xs btn-mini">
                                             <i class="fa fa-check"></i>Approve
                                         </button>
                                         {{ Form::close() }}
                                         <br>
-                                        @include('admin.partials.common.delete-modal', ['data' => $inactive_user, 'name' => 'dashboard.users', 'hard_delete' => true])
+                                        @include('admin.partials.common.delete-modal', ['data' => $event_created, 'name' => 'dashboard.events', 'hard_delete' => true])
                                     </td>
                                 </tr>
                             @endforeach

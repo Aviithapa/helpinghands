@@ -6,6 +6,5 @@
     Route::get('/SingleEvents/{slug}','HomeController@SingleEvents');
     Route::get('/single-blog/{slug}','HomeController@singleBlog');
     Route::match(['get', 'post'], '/{slug}', 'HomeController@slug')->where('slug', '.*');
-
-
+    Route::post('help','HomeController@Help')->name('help');
 });
