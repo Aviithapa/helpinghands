@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 27, 2020 at 10:34 AM
+-- Generation Time: Jun 28, 2020 at 05:52 PM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.2.26
 
@@ -280,7 +280,7 @@ CREATE TABLE `posts` (
 --
 
 INSERT INTO `posts` (`id`, `title`, `content`, `excerpt`, `image`, `logo_image`, `type`, `slug`, `created_at`, `updated_at`, `meta_link`, `meta_description`, `facebook`, `twitter`, `instagram`, `LinkedIn`, `portfolio_type`) VALUES
-(2, 'About', '<p>A this is this what i am going to describe on how the approach is going on the way to the dehli of the small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country whic our country , in which roasted parts of sentences fly into your mouth. Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic life One day however a small line of blind text by the name of Lorem Ipsum decided to leave for the far World of Grammar.</p>\r\n\r\n<p>A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.</p>', 'Medical specialty concerned with the mental health and problems', 'jwTpwoxprf70ALyHmUxY2YPMlCGbilyiHLFlFAuQ.jpeg', '', 'content', 'about', '2019-12-02 02:56:05', '2020-06-21 00:04:08', '', '', NULL, '', '', '', NULL),
+(2, 'About', '<p>A this is this what i am going to describe on how the approach is going on the way to the dehli of the small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country whic our country , in which roasted parts of sentences fly into your mouth. Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic life One day however a small line of blind text by the name of Lorem Ipsum decided to leave for the far World of Grammar.</p>\r\n\r\n<p>A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.</p>', 'Medical specialty concerned with the mental health and problems', 'jwTpwoxprf70ALyHmUxY2YPMlCGbilyiHLFlFAuQ.jpeg', '', 'content', 'abouts', '2019-12-02 02:56:05', '2020-06-28 10:05:50', '', '', NULL, '', '', '', NULL),
 (3, 'Donate Us', '<p>Your helping hands will protects someones life and gives him a new birth.</p>', 'Want to help us', 'huLCvuyRI52QVAKwIuwlqcXz0CB5bpZwsAsVjIQT.jpeg', '', 'content', 'donate-us', '2019-12-02 02:57:57', '2020-06-21 00:05:43', '', '', NULL, '', '', '', NULL),
 (4, 'TESTIMONIALS', NULL, 'Our Clients Says About Us', NULL, '', 'content', 'testimonials', '2019-12-02 02:59:03', '2020-06-21 00:07:16', '', '', NULL, '', '', '', NULL),
 (5, 'Blogs', '<p>Separated they live in. A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country</p>', 'Recent Blogs', 'ZljvjoZJWvTC3PCsdgofuCgGuqVWzZ4BkYuN3eMI.jpeg', '', 'content', 'blogs', NULL, '2020-06-21 00:10:19', '', '', NULL, '', '', '', NULL),
@@ -290,20 +290,18 @@ INSERT INTO `posts` (`id`, `title`, `content`, `excerpt`, `image`, `logo_image`,
 (33, 'Event Management', 'Esteem spirit temper too say adieus who direct esteem. It esteems luckily or picture placing drawing.', 'fas fa-allergies', '', 'eI2l6BJQOFqYVllpS8QzHeElQOhAcsXZb0nyMbwp.png', 'services', 'event-management', '2019-12-07 09:28:50', '2020-06-15 22:54:00', '', '', NULL, '', '', '', NULL),
 (35, 'Esteem spirit', 'Esteem spirit temper too say adieus who direct esteem. It esteems luckily or picture placing drawing.', NULL, '', NULL, 'services', 'esteem-spirit', '2019-12-07 09:33:03', '2020-06-15 22:54:44', '', '', NULL, '', '', '', NULL),
 (36, 'Esteem', 'Esteem spirit temper too say adieus who direct esteem. It esteems luckily or picture placing drawing.', NULL, '', '', 'services', 'esteem', '2019-12-07 10:04:49', '2020-06-15 22:55:12', '', '', NULL, '', '', '', NULL),
-(50, 'Events', '<p>Hello this is the event</p>', 'Recent Event', NULL, '', 'content', 'event', '2020-01-05 15:50:20', '2020-06-21 00:11:27', '', '', NULL, '', '', '', NULL),
+(50, 'Events', '<p>Hello this is the event</p>', 'Recent Event', NULL, '', 'content', 'eventes', '2020-01-05 15:50:20', '2020-06-28 10:02:18', '', '', NULL, '', '', '', NULL),
 (52, 'Index', NULL, NULL, NULL, NULL, 'pages', 'index', '2020-02-24 21:41:28', '2020-02-25 22:44:41', 'Home', 'Test', NULL, '', '', '', NULL),
 (53, 'Event', NULL, NULL, NULL, NULL, 'pages', 'events', '2020-02-24 21:42:04', '2020-06-21 06:32:47', 'Event', 'Test', NULL, '', '', '', NULL),
-(54, 'Our Product', NULL, NULL, NULL, NULL, 'pages', 'our-product', '2020-02-24 21:43:00', '2020-03-05 00:42:19', 'Our-Product', 'Test', NULL, '', '', '', NULL),
 (55, 'Single Blog', NULL, NULL, NULL, NULL, 'pages', 'single-blog', '2020-02-24 21:43:22', '2020-03-05 22:57:44', 'single-blog/vivo', 'Test', NULL, '', '', '', NULL),
 (56, 'Blog', NULL, NULL, NULL, NULL, 'pages', 'blog', '2020-02-24 21:44:07', '2020-03-03 23:39:20', 'Blog', 'Test', NULL, '', '', '', NULL),
 (57, 'Contact', NULL, NULL, NULL, NULL, 'pages', 'contact', '2020-02-24 21:44:29', '2020-03-03 23:39:51', 'Contact', 'Test', NULL, '', '', '', NULL),
-(74, 'Team', NULL, NULL, NULL, NULL, 'pages', 'team', '2020-03-04 23:08:15', '2020-03-04 23:08:15', 'Team', 'Test', NULL, NULL, NULL, NULL, NULL),
 (93, 'Prashant', 'I think this is the best It company ever i know i provide it all the 5 star company', NULL, 'Sy7dXQxA6xKW470WPcL2MBTXh3sbtsYe8iLZZPLB.png', '', 'testimonial', 'prashant', '2020-03-06 11:25:09', '2020-03-06 11:26:30', '', '', NULL, NULL, NULL, NULL, NULL),
-(98, 'Gallary', NULL, 'Gallary', NULL, NULL, 'pages', 'gallary', '2020-03-08 05:19:21', '2020-03-08 05:21:10', 'Gallery', 'Test', NULL, NULL, NULL, NULL, NULL),
 (106, 'banner', NULL, NULL, '5yOAxBFCiBvp4ln6LLhHhjdbpJlKw8FgL2Zh9fhq.jpeg', '', 'homepage_banner', 'banner', '2020-06-15 22:24:10', '2020-06-20 23:43:43', '', '', NULL, NULL, NULL, NULL, NULL),
 (107, 'banner1', NULL, NULL, 'hTJy1LtsC5HXjrGRat4MUbk6VEevrk1A52zX672I.jpeg', '', 'homepage_banner', 'banner1', '2020-06-15 22:24:41', '2020-06-20 23:44:34', '', '', NULL, NULL, NULL, NULL, NULL),
 (108, 'banner2', NULL, NULL, 'C3frm2QFtA07lJxbQZ8WxbbR7RkZY2SGIAj0wmGZ.jpeg', '', 'homepage_banner', 'banner2', '2020-06-15 22:25:09', '2020-06-20 23:45:27', '', '', NULL, NULL, NULL, NULL, NULL),
-(109, 'Hello', 'Blog Testing', 'Blog', 'ZXMviWVcY6F81LMPo74tlRpXaAtaRdNrCjMCeXvl.jpeg', '', 'news', 'hello', '2020-06-21 06:22:47', '2020-06-21 06:22:47', '', '', NULL, NULL, NULL, NULL, NULL);
+(109, 'Hello', 'Blog Testing', 'Blog', 'ZXMviWVcY6F81LMPo74tlRpXaAtaRdNrCjMCeXvl.jpeg', '', 'news', 'hello', '2020-06-21 06:22:47', '2020-06-21 06:22:47', '', '', NULL, NULL, NULL, NULL, NULL),
+(112, 'About', NULL, NULL, NULL, NULL, 'pages', 'about', '2020-06-28 10:06:24', '2020-06-28 10:06:24', 'About', NULL, NULL, NULL, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -348,7 +346,8 @@ INSERT INTO `role_user` (`role_id`, `user_id`, `user_type`) VALUES
 (1, 1, 'App\\Models\\Auth\\User'),
 (1, 2, 'App\\Models\\Auth\\User'),
 (1, 3, 'App\\Models\\Auth\\User'),
-(2, 5, 'App\\Models\\Auth\\User');
+(2, 5, 'App\\Models\\Auth\\User'),
+(2, 7, 'App\\Models\\Auth\\User');
 
 -- --------------------------------------------------------
 
@@ -384,10 +383,10 @@ INSERT INTO `site_settings` (`id`, `display_name`, `name`, `value`, `created_at`
 (12, 'Opening time', 'opening_time', NULL, '2019-12-02 02:00:13', '2020-06-14 23:43:39'),
 (13, 'Footer', 'footer', NULL, '2019-12-02 02:00:13', '2019-12-02 02:00:13'),
 (14, 'Footer info', 'footer_info', NULL, '2019-12-02 02:00:13', '2019-12-02 02:00:13'),
-(15, 'Copy right', 'copy_right', NULL, '2019-12-02 02:00:13', '2019-12-02 02:00:13'),
+(15, 'Copy right', 'copy_right', 'Copyright by helpinghands © 2021. All rights reserved.', '2019-12-02 02:00:13', '2020-06-27 03:45:23'),
 (16, 'Location', 'location', 'Tripura Sundari Baitadi', '2019-12-02 02:00:13', '2020-06-14 23:44:05'),
 (17, 'Email', 'email', 'abhishekthapa115@gmail.com', NULL, '2020-06-15 22:36:31'),
-(18, 'Logo image', 'logo_image', '/storage/logo_image//storage/logo_image//storage/logo_image/e2g0SyZBniDHSyAK6gvpcRR9x1e1431azn1FXstO.png', '2019-12-29 12:47:30', '2020-06-15 22:36:31'),
+(18, 'Logo image', 'logo_image', '/storage/logo_image//storage/logo_image//storage/logo_image//storage/logo_image/e2g0SyZBniDHSyAK6gvpcRR9x1e1431azn1FXstO.png', '2019-12-29 12:47:30', '2020-06-27 03:45:23'),
 (19, 'Logo image_image', 'logo_image_image', 'C:\\xampp\\tmp\\php792C.tmp', '2020-03-04 04:31:09', '2020-03-04 04:31:09');
 
 -- --------------------------------------------------------
@@ -464,8 +463,10 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `user_name`, `email`, `status`, `phone_number`, `mobile_number`, `address`, `state`, `postal_code`, `city`, `country`, `website`, `company_name`, `company_registration_number`, `vat_pan_no`, `contact_name`, `contact_email`, `contact_phone_number`, `contact_mobile_number`, `password`, `password_reference`, `password_change_code`, `image`, `provider`, `provider_id`, `remember_token`, `created_at`, `updated_at`, `deleted_at`) VALUES
-(1, 'Abhishek Thapa', 'abhishekthapa', 'abhishekthapa115@gmail.com', 'active', '9867739191', NULL, 'TripuraSundari Baitadi', '', '', '', '', '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '$2y$10$urKVN2RFYOcMKoh.Ouk5.ufB9AMHSM61G/gBNeUDjUREQNAc3e3B2', '', '', NULL, NULL, NULL, 'EZjnZIzAIKmvqGcdEyzSWk4BcUr35pDBK2d4arxHl13YDCC3kprDVSMxBikq', '2020-06-14 23:45:42', '2020-06-14 23:45:42', NULL),
-(5, 'abhi', 'abhi', 'gopal@gmail.com', 'active', NULL, NULL, NULL, '', '', '', '', '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '$2y$10$fJzaEr/6OdYx4AXsVb0LMedPuh..Ye1pyrTF1AaZMUx.QgqXJNitm', '', '', NULL, NULL, NULL, 'Du0qXBw0G9DHs5jw1j5Uf2GErVfNWJ2z7vx5Kp60XYqsCQT1qUrZ4zXUjvN1', '2020-06-24 01:25:07', '2020-06-24 01:25:07', NULL);
+(1, 'Abhishek Thapa', 'abhishekthapa', 'abhishekthapa115@gmail.com', 'active', '9867739191', NULL, 'TripuraSundari Baitadi', '', '', '', '', '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '$2y$10$urKVN2RFYOcMKoh.Ouk5.ufB9AMHSM61G/gBNeUDjUREQNAc3e3B2', '', '', NULL, NULL, NULL, 'mo7pvH7StVxtzi413sML8GeA6vLPWbdJiEt68tdwvLkmqfXKD1I1HZGHA1um', '2020-06-14 23:45:42', '2020-06-14 23:45:42', NULL),
+(5, 'abhi', 'abhi', 'gopal@gmail.com', 'active', NULL, NULL, NULL, '', '', '', '', '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '$2y$10$fJzaEr/6OdYx4AXsVb0LMedPuh..Ye1pyrTF1AaZMUx.QgqXJNitm', '', '', NULL, NULL, NULL, 'Du0qXBw0G9DHs5jw1j5Uf2GErVfNWJ2z7vx5Kp60XYqsCQT1qUrZ4zXUjvN1', '2020-06-24 01:25:07', '2020-06-24 01:25:07', NULL),
+(6, 'Ganesh', 'ganesh', 'ganesh@gmail.com', 'in-active', '9867739191', '9867739191', 'Tripura', '', '', '', '', '', 'Companu', 'fjahfj', 'nsjdbj', 'bdjsbd', 'bhish@gmail.com', 'dnfskan', 'nsjncjdn', '$2y$10$5k9GKWw/r13mqGXOFIz9Iev2xHERZ1vWZrxiTgPNjxKFUsStfAtIu', 'ganesh123', '', '', NULL, NULL, NULL, '2020-06-28 09:10:18', '2020-06-28 09:10:18', NULL),
+(7, 'Birendra', 'biru', 'biru@gmail.com', 'in-active', '9867739191', NULL, 'Tripura', '', '', '', '', '', '', '', '', '', '', '', '', '$2y$10$LQYK8yS3yb7HJQo73cx3AeD6lHxVPQvxjyUP5DLwabYg1Z8mEOCGW', 'birendra', '', '', NULL, NULL, 'JIb8ksrb3UIP6p14oJyhuUtRcokLcIeTZwDqT9xba9LnjgZdGIzhUOyqJGte', '2020-06-28 09:46:28', '2020-06-28 09:46:28', NULL);
 
 --
 -- Indexes for dumped tables
@@ -588,7 +589,7 @@ ALTER TABLE `permissions`
 -- AUTO_INCREMENT for table `posts`
 --
 ALTER TABLE `posts`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=110;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=113;
 
 --
 -- AUTO_INCREMENT for table `roles`
@@ -612,7 +613,7 @@ ALTER TABLE `sliders`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- Constraints for dumped tables
