@@ -31,7 +31,7 @@
 </head>
 <!-- END HEAD -->
 <!-- BEGIN BODY -->
-<body class="error-body no-top lazy" data-original="assets/img/work.jpg" style="background-image: url('/assets/img/work.jpg')">
+<body>
 <div class="container">
     <div class="row login-container animated fadeInUp">
         <div class="col-md-7 col-md-offset-2 tiles white no-padding">
@@ -42,12 +42,15 @@
             </div>
             <div class="tiles grey p-t-20 p-b-20 no-margin text-black tab-content">
                 <div class="text-center">
-                    You have been successfully registered in Bahan. Your account will soon be reviewed and verified.
+                    You have been successfully registered in {{getSiteSetting('site_title')}}.
                 </div>
             </div>
             <div class="p-t-30 p-l-40 p-b-20 xs-p-t-10 xs-p-l-10 xs-p-b-10">
                 <a href="/" class="btn btn-info btn-cons" title="Register">
                     Continue to site
+                </a>
+                <a href="{{url('login')}}" class="btn btn-info btn-cons" title="Register">
+                    Go to Login Page
                 </a>
             </div>
         </div>

@@ -66,7 +66,7 @@
                     <p class="p-b-20">
                         <a href="#">Sign up Now! for</a> {{ config('app.site_name') }} accounts, it's free..
                     </p>
-                    <a href="{{url("register")}}" class="btn btn-primary" >
+                    <a href="{{url("register/eventorganizer")}}" class="btn btn-primary" >
                         Recruiter Registration
                     </a>
                 </div>

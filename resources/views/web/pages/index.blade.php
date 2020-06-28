@@ -46,6 +46,9 @@
     <!--Events Section-->
     <section class="ftco-section ftco-no-pt ftco-no-pb bg-light mt-10">
         <div class="container-fluid" style="padding:50px;">
+            <div class="heading-section text-center" >
+                <h1>From Our Events Post</h1>
+            </div>
             <div class="row no-gutters">
                 @foreach($Event as $event)
                     @if($event->status=='active')
@@ -66,6 +69,9 @@
                 </div>
                 @endif
                     @endforeach
+            </div>
+            <div class="button" style="margin-top: 20px; text-align: center;">
+                <a href="{{url('events')}}"> <input type="Submit" value="View All Events" class="btn btn-primary py-2 px-6"></a>
             </div>
         </div>
     </section>
@@ -179,6 +185,9 @@
                     </div>
                 </div>
                 @endforeach
+            </div>
+            <div class="button" style="margin-top: 20px; text-align: center;">
+                <a href="{{url('blog')}}"> <input type="Submit" value="View All Blogs" class="btn btn-primary py-2 px-6"></a>
             </div>
         </div>
     </section>

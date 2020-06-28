@@ -53,11 +53,7 @@ class RegisterController extends Controller
         return view('auth.register', compact('role'));
     }
 
-    public function showRegistration()
-    {
-        $role='eventManager';
-        return view('auth.register', compact('role'));
-    }
+
     /**
      * Get a validator for an incoming registration request.
      *
@@ -104,7 +100,7 @@ class RegisterController extends Controller
         $data['role'] = $role;
         event(new Registered($user = $this->create($data)));
 
-        //$this->guard()->login($user);
+
 
         return $this->registered($request, $user)
             ?: redirect($this->redirectPath());

@@ -26,7 +26,7 @@
             <li>
                 <a href="{{route('dashboard.events.index')}}">
                     <i class="fa fa-calendar-check-o"></i>
-                    <span class="title">Event</span>
+                    <span class="title">Create Event</span>
                 </a>
             </li>
 

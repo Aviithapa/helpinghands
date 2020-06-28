@@ -5,8 +5,6 @@
     <meta charset="utf-8"/>
     <title>{{getSiteSetting('site_title') != null? getSiteSetting('site_title'): ''}} </title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
-    <meta content="" name="Login to Apply Global"/>
-    <meta content="" name="Prabin Bajracharya"/>
     <!-- BEGIN PLUGIN CSS -->
     <link href="{{asset('assets/plugins/pace/pace-theme-flash.css')}}" rel="stylesheet" type="text/css" media="screen"/>
     <link href="{{asset('assets/plugins/bootstrapv3/css/bootstrap.min.css')}}" rel="stylesheet" type="text/css"/>
@@ -15,7 +13,7 @@
     <link href="{{asset('assets/plugins/animate.min.css')}}" rel="stylesheet" type="text/css"/>
     <link href="{{asset('assets/plugins/jquery-scrollbar/jquery.scrollbar.css')}}" rel="stylesheet" type="text/css"/>
     <link href="{{asset('assets/plugins/font-awesome/css/font-awesome.css')}}" rel="stylesheet" type="text/css"/>
-
+    <link href="{{asset('assets/css/register.css')}}" rel="stylesheet" type="text/css"/>
     <!-- END PLUGIN CSS -->
     <!-- BEGIN CORE CSS FRAMEWORK -->
     <link href="{{asset('webarch/css/webarch.css')}}" rel="stylesheet" type="text/css"/>
@@ -39,8 +37,7 @@
 </head>
 <!-- END HEAD -->
 <!-- BEGIN BODY -->
-<body class="error-body no-top lazy" data-original="assets/img/work.jpg"
-      style="background-image: url('/assets/img/work.jpg')">
+<body style="background: #8B91A0">
 
 @yield('content')
 
