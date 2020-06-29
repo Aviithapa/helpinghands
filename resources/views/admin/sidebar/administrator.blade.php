@@ -1,5 +1,5 @@
 <!-- BEGIN SIDEBAR -->
-<div class="page-sidebar " id="main-menu">
+<div class="page-sidebar" id="main-menu">
     <!-- BEGIN MINI-PROFILE -->
     <div class="page-sidebar-wrapper scrollbar-dynamic" id="main-menu-wrapper">
         <div class="user-info-wrapper sm">
@@ -66,6 +66,12 @@
                 <a href="{{route('dashboard.help.index')}}">
                     <i class="fa fa-hands-helping"></i>
                     <span class="title">Help Request</span>
+                </a>
+            </li>
+            <li>
+                <a href="{{route('dashboard.donor.index')}}">
+                    <i class="fa fa-donate"></i>
+                    <span class="title">Donor List</span>
                 </a>
             </li>
 

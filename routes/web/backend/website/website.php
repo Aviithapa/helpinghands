@@ -97,7 +97,17 @@ Route::group(['namespace' => 'WebSite'], function () {
             'show'=>'dashboard.help.show',
         ]
     ]);
-
+    Route::resource('donor', 'DonorController', [
+        'names' => [
+            'index' => 'dashboard.donor.index',
+            'create' => 'dashboard.donor.create',
+            'store' => 'dashboard.donor.store',
+            'edit' => 'dashboard.donor.edit',
+            'update' => 'dashboard.donor.update',
+            'destroy' => 'dashboard.donor.destroy',
+            'show'=>'dashboard.donor.show',
+        ]
+    ]);
     Route::match(['put', 'patch'], 'events/approve/{event}', 'EventController@approve')->name('dashboard.events.approve');
 
 });

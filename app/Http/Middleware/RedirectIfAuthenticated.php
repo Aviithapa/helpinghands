@@ -21,8 +21,8 @@ class RedirectIfAuthenticated
             if(Auth::user()->mainRole()->name ==='administrator') {
                 return redirect()->route('dashboard.index');
             }
-            elseif(Auth::user()->mainRole()->name ==='recruiter'){
-                return redirect()->route('recruiters.index');
+            elseif(Auth::user()->mainRole()->name ==='eventorganizer'){
+                return redirect()->route('dashboard.index');
             }elseif (Auth::user()->mainRole()->name ==='student'){
                 return redirect()->route('student.index');
             }

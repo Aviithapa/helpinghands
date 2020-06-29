@@ -43,14 +43,13 @@
                         <div class="quotes">
                            {{$Event->excerpt}}
                         </div>
-                          @endforeach
+
                      </div>
                   </div>
                </div>
                <div class="navigation-top">
                   <div class="d-sm-flex justify-content-between text-center">
-                     <p class="like-info"><span class="align-middle"><i class="fa fa-heart"></i></span> Lily and 4
-                        people like this</p>
+                     <p class="like-info"><span class="align-middle"><i class="fa fa-heart"></i></span> </p>
                      <div class="col-sm-4 text-center my-2 my-sm-0">
                         <!-- <p class="comment-count"><span class="align-middle"><i class="fa fa-comment"></i></span> 06 Comments</p> -->
                      </div>
@@ -75,9 +74,10 @@
                   </div>
                </div>
                 <div class="form-group container-fluid" style="margin-top: 20px">
-                    <input type="submit" value="Donate" class="btn btn-primary py-3 px-5">
+                    {{$event=$Event->id}}
+                    <a href="{{url('donation',compact($event))}}"><input type="submit" value="Donate" class="btn btn-primary py-3 px-5"></a>
                 </div>
-
+                @endforeach
             </div>
             <div class="col-lg-4">
                <div class="blog_right_sidebar">
@@ -87,7 +87,7 @@
                           <div class="media post_item">
                               <img src="{{$event->getImage()}}" alt="{{getSiteSetting('site_title') != null? getSiteSetting('site_title'): ''}}" style="height:50px;width: 50px;">
                               <div class="media-body">
-                                  <a href="{{url('single-blog/'.$event->slug)}}">
+                                  <a href="{{url('SingleEvents/'.$event->slug)}}">
                                       <h3>{{str_limit($event['title'],100)}}</h3>
                                   </a>
                                   <p>{{$event->created_at}}</p>

@@ -126,7 +126,7 @@
                     <div class="widget no-box">
                         <h5 class="widget-title">Get Started<span></span></h5>
                         <p>Get access to your account to create events.</p>
-                        <a class="btn" href="{{url('register/eventmanager')}}" target="_blank">Register Now</a>
+                        <a class="btn" href="{{url('register/eventorganizer')}}" target="_blank">Register Now</a>
                     </div>
                 </div>
 

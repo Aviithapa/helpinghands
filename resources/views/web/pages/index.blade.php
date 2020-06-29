@@ -56,13 +56,13 @@
                     <div class="blog-entry ftco-animate">
                         <a href="{{url('SingleEvents/'.$event->slug)}}" class="img" style="background-image: url({{$event->getImage()}});"></a>
                         <div class="text p-4">
-                            <h3 class="mb-2"><a href="{{url('SingleEvents/'.$event->slug)}}">{{$event->title}}</a></h3>
+                            <h3 class="mb-2"><a href="{{url('SingleEvents/'.$event->slug)}}"> {{str_limit($event['title'],50)}}    </a></h3>
                             <div class="meta-wrap">
                                 <p class="meta">
                                     <span><i class="icon-calendar mr-2"></i>{{$event->start_date}}</span>
                                 </p>
                             </div>
-                            <p class="mb-4">{{$event->content}}</p>
+                                           <p class="mb-4">{{str_limit($event["content"],100)}}</p>
                             <p><a href="{{url('SingleEvents/'.$event->slug)}}" class="btn-custom">Read More <span class="ion-ios-arrow-forward"></span></a></p>
                         </div>
                     </div>

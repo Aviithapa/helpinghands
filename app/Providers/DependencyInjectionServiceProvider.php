@@ -2,7 +2,10 @@
 
 namespace App\Providers;
 
+use App\Models\Website\Donation;
 use App\Models\Website\Post;
+use App\Modules\Backend\Website\Donation\Repositories\DonationRepository;
+use App\Modules\Backend\Website\Donation\Repositories\EloquentDonationRepository;
 use App\Modules\Backend\Website\Event\Repositories\EloquentEventRepository;
 use App\Modules\Backend\Website\Event\Repositories\EventRepository;
 use App\Modules\Backend\Website\Help\Repositories\EloquentHelpRepository;
@@ -104,6 +107,9 @@ class DependencyInjectionServiceProvider extends ServiceProvider
             HelpRepository::class,
             EloquentHelpRepository::class
         );
-
+       $this->app->bind(
+           DonationRepository::class,
+           EloquentDonationRepository::class
+       );
     }
 }

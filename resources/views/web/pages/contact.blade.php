@@ -4,20 +4,22 @@
     <!-- bradcam_area  -->
     @include('web.layouts.bradcam')
     <!-- /bradcam_area  -->
-    <section class="ftco-section contact-section ftco-degree-bg">
-        <div class="container">
+    <section class="ftco-section contact-section ftco-degree-bg bg-light text-color-dark">
+        <div class="container bg-light">
             <div>
                 <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d222219.62321137477!2d80.41922548167841!3d29.51106508744361!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39a143c61d78dd33%3A0xa218173b0b840579!2sBaitadi!5e0!3m2!1sen!2snp!4v1589255759080!5m2!1sen!2snp" width="100%" height="600" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
             </div>
 
-            <div class="row block-9">
+            <div class="row block-9 bg-light">
                 <div class="col-md-6 pr-md-5">
                     <form action="#">
-                        <div class="form-group">
-                            <input type="text" class="form-control" placeholder="Your Name">
+                        <div class="form-group col-md-12">
+                            <label for="inputName">Name</label>
+                            <input style="color:black;" type="text" class="form-control" id="inputPassword4">
                         </div>
-                        <div class="form-group">
-                            <input type="text" class="form-control" placeholder="Your Email">
+                        <div class="form-group col-md-12">
+                            <label for="inputEmail4">Email</label>
+                            <input type="email" class="form-control" id="inputEmail4">
                         </div>
                         <div class="form-group">
                             <input type="text" class="form-control" placeholder="Subject">

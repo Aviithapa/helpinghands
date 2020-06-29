@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 28, 2020 at 05:52 PM
+-- Generation Time: Jun 29, 2020 at 06:24 PM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.2.26
 
@@ -21,6 +21,45 @@ SET time_zone = "+00:00";
 --
 -- Database: `helpinghands`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `donation`
+--
+
+CREATE TABLE `donation` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `name` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `email` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `address` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `city` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `district` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `zip` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `phoneNumber` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `mobileNumber` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `event_id` int(10) UNSIGNED DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  `image` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT ''
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `donation`
+--
+
+INSERT INTO `donation` (`id`, `name`, `email`, `address`, `city`, `district`, `zip`, `phoneNumber`, `mobileNumber`, `event_id`, `created_at`, `updated_at`, `image`) VALUES
+(1, 'Abhishek Thapa', 'abhishekthapa115@gmail.com', 'ward no 8', 'TripuraSundari', 'Baitadi', '14000', '9867739191', '9867739191', NULL, '2020-06-29 00:00:45', '2020-06-29 00:00:45', ''),
+(2, 'ganesh', 'ganesh@gmail.com', '12434', 'Kathmandu', 'Kathmandu', '14400', 'XXXXXXXXXX', '9867739191', NULL, '2020-06-29 00:07:36', '2020-06-29 00:07:36', ''),
+(3, 'ganesh', 'ganesh@gmail.com', '12434', 'Kathmandu', 'Kathmandu', '14400', 'XXXXXXXXXX', '9867739191', NULL, '2020-06-29 00:08:56', '2020-06-29 00:08:56', ''),
+(4, 'ganesh', 'ganesh@gmail.com', '12434', 'Kathmandu', 'Kathmandu', '14400', 'XXXXXXXXXX', '9867739191', NULL, '2020-06-29 00:09:25', '2020-06-29 00:09:25', ''),
+(5, 'ganesh', 'ganesh@gmail.com', '12434', 'Kathmandu', 'Kathmandu', '14400', 'XXXXXXXXXX', '9867739191', NULL, '2020-06-29 00:09:45', '2020-06-29 00:09:45', ''),
+(6, 'ganesh', 'ganesh@gmail.com', '12434', 'Kathmandu', 'Kathmandu', '14400', 'XXXXXXXXXX', '9867739191', NULL, '2020-06-29 00:10:00', '2020-06-29 00:10:00', ''),
+(7, 'ganesh', 'ganesh@gmail.com', '12434', 'Kathmandu', 'Kathmandu', '14400', 'XXXXXXXXXX', '9867739191', NULL, '2020-06-29 00:10:59', '2020-06-29 00:10:59', ''),
+(8, 'Prashant Thapa', 'prashant@gmail.com', 'Tripura', 'Kathmandi', 'Kathmandu', '14000', '9867739191', '9867739191', NULL, '2020-06-29 09:04:38', '2020-06-29 09:04:38', NULL),
+(9, 'Prashant Thapa', 'prashant@gmail.com', 'Tripura', 'Kathmandi', 'Kathmandu', '14000', '9867739191', '9867739191', NULL, '2020-06-29 09:06:42', '2020-06-29 09:06:42', 'Capture.PNG'),
+(10, 'Prashant Thapa', 'prashant@gmail.com', 'Tripura', 'Kathmandi', 'Kathmandu', '14000', '9867739191', '9867739191', NULL, '2020-06-29 09:13:23', '2020-06-29 09:13:23', NULL),
+(11, 'Prashant Thapa', 'prashant123@gmail.com', 'Tripura', 'Kathmandi', 'Kathmandu', '14000', '9867739191', '9867739191', NULL, '2020-06-29 09:42:06', '2020-06-29 09:42:06', NULL);
 
 -- --------------------------------------------------------
 
@@ -53,7 +92,8 @@ INSERT INTO `events` (`id`, `title`, `content`, `excerpt`, `image`, `start_date`
 (1, 'abcd', 'iabhs', 'abh', '1SOBbPGSp09I3BXiGpIqykwfCfjSxFI8BnZUff4g.jpeg', '2020-06-23', '2020-06-25', 'events', 'abcd', '2020-06-20 04:05:04', '2020-06-24 12:39:19', 'active', NULL, NULL),
 (5, 'abc', 'abc', 'abc', '', '', '', 'events', 'abc', NULL, '2020-06-24 12:18:41', 'active', NULL, NULL),
 (7, 'a', 'a', 'a', '', '', '', 'events', 'a', NULL, '2020-06-24 12:18:47', 'active', NULL, 5),
-(8, 'gopal', 'gopal', 'gopal', 'jEQjo9Dzqj7Yxe6y4ZYk8bgUePEOQaviatm17WiE.jpeg', '2020-06-26', '2020-06-26', 'events', 'gopal', '2020-06-24 12:17:24', '2020-06-24 12:18:03', 'active', NULL, NULL);
+(8, 'gopal', 'gopal', 'gopal', 'jEQjo9Dzqj7Yxe6y4ZYk8bgUePEOQaviatm17WiE.jpeg', '2020-06-26', '2020-06-26', 'events', 'gopal', '2020-06-24 12:17:24', '2020-06-24 12:18:03', 'active', NULL, NULL),
+(9, '10th Ebola outbreak in the Democratic Republic of the Congo declared over; vigilance against flare-ups and support for survivors must continue', 'Event driven systems are typically used when there is some asynchronous external activity that needs to be handled by a program; for example, a user who presses a button on their mouse. An event driven system typically runs an event loop, that keeps waiting for such activities, e.g. input from devices or internal alarms. When one of these occurs, it collects data about the event and dispatches the event to the event handler software that will deal with it.\r\n\r\nA program can choose to ignore events, and there may be libraries to dispatch an event to multiple handlers that may be programmed to listen for a particular event. The data associated with an event at a minimum specifies what type of event it is, but may include other information such as when it occurred, who or what caused it to occur, and extra data provided by the event source to the handler about how the event should be processed.\r\n\r\nEvents are typically used in user interfaces, where actions in the outside world (mouse clicks, window-resizing, keyboard presses, messages from other programs, etc.) are handled by the program as a series of events. Programs written for many windowing environments consist predominantly of event handlers.\r\n\r\nEvents can also be used at instruction set level, where they complement interrupts. Compared to interrupts, events are normally handled synchronously: the program explicitly waits for an event to be serviced (typically by calling an instruction that dispatches the next event), whereas an interrupt can demand service at any time.', '“The DRC is now better, smarter and faster at responding to Ebola and this is an enduring legacy which is supporting the response to COVID-19 and other outbreaks.”', '9k6yWcPCMoOrxga9l27oqGPgXcbobwuPtPD0mcsW.jpeg', '2020-06-30', '2020-07-04', 'events', '10th-ebola-outbreak-in-the-democratic-republic-of-the-congo-declared-over-vigilance-against-flareups-and-support-for-survivors-must-continue', '2020-06-29 01:58:23', '2020-06-29 02:07:04', 'active', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -117,7 +157,9 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (13, '2020_03_05_080743_add_enum_to_posts_table', 5),
 (14, '2020_03_07_070139_create_get_touch_table', 6),
 (15, '2020_06_20_091936_create_events_table', 6),
-(16, '2020_06_27_052528_create_help_table', 7);
+(16, '2020_06_27_052528_create_help_table', 7),
+(17, '2020_06_29_053847_create_donation_table', 8),
+(18, '2020_06_29_144334_add_image_to_the_donation_table', 9);
 
 -- --------------------------------------------------------
 
@@ -301,7 +343,9 @@ INSERT INTO `posts` (`id`, `title`, `content`, `excerpt`, `image`, `logo_image`,
 (107, 'banner1', NULL, NULL, 'hTJy1LtsC5HXjrGRat4MUbk6VEevrk1A52zX672I.jpeg', '', 'homepage_banner', 'banner1', '2020-06-15 22:24:41', '2020-06-20 23:44:34', '', '', NULL, NULL, NULL, NULL, NULL),
 (108, 'banner2', NULL, NULL, 'C3frm2QFtA07lJxbQZ8WxbbR7RkZY2SGIAj0wmGZ.jpeg', '', 'homepage_banner', 'banner2', '2020-06-15 22:25:09', '2020-06-20 23:45:27', '', '', NULL, NULL, NULL, NULL, NULL),
 (109, 'Hello', 'Blog Testing', 'Blog', 'ZXMviWVcY6F81LMPo74tlRpXaAtaRdNrCjMCeXvl.jpeg', '', 'news', 'hello', '2020-06-21 06:22:47', '2020-06-21 06:22:47', '', '', NULL, NULL, NULL, NULL, NULL),
-(112, 'About', NULL, NULL, NULL, NULL, 'pages', 'about', '2020-06-28 10:06:24', '2020-06-28 10:06:24', 'About', NULL, NULL, NULL, NULL, NULL, NULL);
+(112, 'About', NULL, NULL, NULL, NULL, 'pages', 'about', '2020-06-28 10:06:24', '2020-06-28 10:06:24', 'About', NULL, NULL, NULL, NULL, NULL, NULL),
+(113, 'Donation', NULL, NULL, NULL, NULL, 'pages', 'donation', '2020-06-29 02:30:22', '2020-06-29 02:30:22', 'Donation', 'Test', NULL, NULL, NULL, NULL, NULL),
+(114, 'SingleEvents', NULL, NULL, NULL, NULL, 'pages', 'singleevents', '2020-06-29 02:31:21', '2020-06-29 02:31:21', 'Single Events', 'Test', NULL, NULL, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -347,7 +391,8 @@ INSERT INTO `role_user` (`role_id`, `user_id`, `user_type`) VALUES
 (1, 2, 'App\\Models\\Auth\\User'),
 (1, 3, 'App\\Models\\Auth\\User'),
 (2, 5, 'App\\Models\\Auth\\User'),
-(2, 7, 'App\\Models\\Auth\\User');
+(2, 7, 'App\\Models\\Auth\\User'),
+(2, 8, 'App\\Models\\Auth\\User\r\n');
 
 -- --------------------------------------------------------
 
@@ -466,11 +511,19 @@ INSERT INTO `users` (`id`, `name`, `user_name`, `email`, `status`, `phone_number
 (1, 'Abhishek Thapa', 'abhishekthapa', 'abhishekthapa115@gmail.com', 'active', '9867739191', NULL, 'TripuraSundari Baitadi', '', '', '', '', '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '$2y$10$urKVN2RFYOcMKoh.Ouk5.ufB9AMHSM61G/gBNeUDjUREQNAc3e3B2', '', '', NULL, NULL, NULL, 'mo7pvH7StVxtzi413sML8GeA6vLPWbdJiEt68tdwvLkmqfXKD1I1HZGHA1um', '2020-06-14 23:45:42', '2020-06-14 23:45:42', NULL),
 (5, 'abhi', 'abhi', 'gopal@gmail.com', 'active', NULL, NULL, NULL, '', '', '', '', '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '$2y$10$fJzaEr/6OdYx4AXsVb0LMedPuh..Ye1pyrTF1AaZMUx.QgqXJNitm', '', '', NULL, NULL, NULL, 'Du0qXBw0G9DHs5jw1j5Uf2GErVfNWJ2z7vx5Kp60XYqsCQT1qUrZ4zXUjvN1', '2020-06-24 01:25:07', '2020-06-24 01:25:07', NULL),
 (6, 'Ganesh', 'ganesh', 'ganesh@gmail.com', 'in-active', '9867739191', '9867739191', 'Tripura', '', '', '', '', '', 'Companu', 'fjahfj', 'nsjdbj', 'bdjsbd', 'bhish@gmail.com', 'dnfskan', 'nsjncjdn', '$2y$10$5k9GKWw/r13mqGXOFIz9Iev2xHERZ1vWZrxiTgPNjxKFUsStfAtIu', 'ganesh123', '', '', NULL, NULL, NULL, '2020-06-28 09:10:18', '2020-06-28 09:10:18', NULL),
-(7, 'Birendra', 'biru', 'biru@gmail.com', 'in-active', '9867739191', NULL, 'Tripura', '', '', '', '', '', '', '', '', '', '', '', '', '$2y$10$LQYK8yS3yb7HJQo73cx3AeD6lHxVPQvxjyUP5DLwabYg1Z8mEOCGW', 'birendra', '', '', NULL, NULL, 'JIb8ksrb3UIP6p14oJyhuUtRcokLcIeTZwDqT9xba9LnjgZdGIzhUOyqJGte', '2020-06-28 09:46:28', '2020-06-28 09:46:28', NULL);
+(7, 'Birendra', 'biru', 'biru@gmail.com', 'in-active', '9867739191', NULL, 'Tripura', '', '', '', '', '', '', '', '', '', '', '', '', '$2y$10$LQYK8yS3yb7HJQo73cx3AeD6lHxVPQvxjyUP5DLwabYg1Z8mEOCGW', 'birendra', '', '', NULL, NULL, 'JIb8ksrb3UIP6p14oJyhuUtRcokLcIeTZwDqT9xba9LnjgZdGIzhUOyqJGte', '2020-06-28 09:46:28', '2020-06-28 09:46:28', NULL),
+(8, 'prashant', 'prashant', 'prashant@gmail.com', 'in-active', '9868718874', '9867739191', 'tripura', '', '', '', '', '', '', '', '', '', '', '', '', '$2y$10$ZJOf8kOAprB4Lf5s0YBVj.M7F9TQ7nKczce7ICXeUqWoA.DrKgz5a', 'abhishek', '', '', NULL, NULL, 'dYB6mq4Qdaenxf0BarJeQaf9rgHSBp7BSz8g1m18VdFwL0OFkUhS7PGkNuxk', '2020-06-29 00:15:02', '2020-06-29 00:15:02', NULL);
 
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `donation`
+--
+ALTER TABLE `donation`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `donation_event_id_foreign` (`event_id`);
 
 --
 -- Indexes for table `events`
@@ -562,10 +615,16 @@ ALTER TABLE `users`
 --
 
 --
+-- AUTO_INCREMENT for table `donation`
+--
+ALTER TABLE `donation`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+
+--
 -- AUTO_INCREMENT for table `events`
 --
 ALTER TABLE `events`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `help`
@@ -577,7 +636,7 @@ ALTER TABLE `help`
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT for table `permissions`
@@ -589,7 +648,7 @@ ALTER TABLE `permissions`
 -- AUTO_INCREMENT for table `posts`
 --
 ALTER TABLE `posts`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=113;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=115;
 
 --
 -- AUTO_INCREMENT for table `roles`
@@ -613,11 +672,17 @@ ALTER TABLE `sliders`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- Constraints for dumped tables
 --
+
+--
+-- Constraints for table `donation`
+--
+ALTER TABLE `donation`
+  ADD CONSTRAINT `donation_event_id_foreign` FOREIGN KEY (`event_id`) REFERENCES `events` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `permission_role`

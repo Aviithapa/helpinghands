@@ -43,7 +43,6 @@ class EventController extends BaseController
                 break;
 
         }
-
         if(\request()->ajax()) {
             return DataTables::of($events)
                 ->editColumn('action', function ($events) {
@@ -73,7 +72,6 @@ class EventController extends BaseController
      */
     public function create()
     {
-
         $role=Auth::user()->mainRole()?Auth::user()->mainRole()->name:'default';
         return $this->view('web-site.events.create',compact('role'));
     }
@@ -86,10 +84,9 @@ class EventController extends BaseController
      */
     public function store(CreateEventRequest $createPostRequest)
     {
-
-        $this->authorize('create', $this->eventRepository->getModel());
         $data = $createPostRequest->all();
         $data['image']=$data['events_pic'];
+        $data['user_id']=Auth::user()->id;
         try {
             $events = $this->eventRepository->create($data);
             if($events == false) {
@@ -125,9 +122,9 @@ class EventController extends BaseController
      */
     public function edit($id)
     {
-        $this->authorize('update', $this->eventRepository->getModel());
+        $role=Auth::user()->mainRole()?Auth::user()->mainRole()->name:'default';
         $events = $this->eventRepository->findById($id);
-        return $this->view('web-site.events.edit', compact('events'));
+        return $this->view('web-site.events.edit', compact('events','role'));
     }
 
     /**

@@ -46,7 +46,7 @@
                         <div class="col-md-12 col-lg-12">
                             <div class="form-group">
                                 {!! Form::label('content', 'Content:', ['class' => 'form-label']) !!}
-                                {!! Form::textarea('content',null, ['class' => 'form-control ckeditor','id'=>'ckeditor','maxlength'=>'191']) !!}
+                                {!! Form::textarea('content',null, ['class' => 'form-control ckeditor','id'=>'ckeditor']) !!}
                                 {!! $errors->first('content', '<div class="text-danger">:message</div>') !!}
                             </div>
                         </div>
@@ -72,8 +72,7 @@
                                 {!! $errors->first('end_date', '<div class="text-danger">:message</div>') !!}
                             </div>
                         </div>
-                        @switch ($role)
-                            @case('administrator')
+                            @if($role==='administrator')
                             <div class="col-md-6 col-lg-6">
                                 <div class="form-group">
                                     {!! Form::label('status', 'Status:', ['class' => 'form-label']) !!}
@@ -81,11 +80,7 @@
                                     {!! $errors->first('status', '<div class="text-danger">:message</div>') !!}
                                 </div>
                             </div>
-                            @break
-                            @default
-
-                            @break
-                            @endswitch
+                            @endif
 
 
 
