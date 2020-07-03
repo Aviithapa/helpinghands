@@ -11,8 +11,8 @@
             <div class="container">
                 <div class="row no-gutters slider-text align-items-center justify-content-center">
                     <div class="col-md-9 ftco-animate text-center">
-                        <h1 class="mb-2 bread">Blog</h1>
-                        <p class="breadcrumbs"><span class="mr-2"><a href="index.html">Home <i class="ion-ios-arrow-forward"></i></a></span> <span>About us <i class="ion-ios-arrow-forward"></i></span></p>
+                        <h1 class="mb-2 bread">{{$blog->slug}}</h1>
+                        <p class="breadcrumbs"><span class="mr-2"><a href="{{'/'}}">Home <i class="ion-ios-arrow-forward"></i></a></span> <span>{{$blog->slug}}<i class="ion-ios-arrow-forward"></i></span></p>
                     </div>
                 </div>
             </div>
@@ -27,7 +27,7 @@
                     <div class="col-lg-8 posts-list">
                         <div class="single-post">
                             <div class="feature-img">
-                                <img class="img-fluid" src="{{$blog->getNewsImage()}}" alt="">
+                                <img class="img-responsive" src="{{$blog->getNewsImage()}}" width="700px" height="500px" alt="">
                             </div>
                             <div class="blog_details">
                                 <h2>{{$blog->title}}

@@ -10,8 +10,8 @@
                 <div class="row no-gutters slider-text align-items-center justify-content-end" data-scrollax-parent="true">
                     <div class="col-md-6 text ftco-animate">
                         <h1 class="mb-4">Helping Your <span>Stay Happy One</span></h1>
-                        <h3 class="subheading">Everyday We Bring Hope and Smile to the Patient We Serve</h3>
-                        <p><a href="#" class="btn btn-secondary px-4 py-3 mt-3">View our works</a></p>
+                            <h2 class="subheading">Everyday We Bring Hope and Smile to the Patient We Serve</h2>
+                        <p><a href="{{url('donation')}}" class="btn btn-secondary px-4 py-3 mt-3">Donate</a></p>
                     </div>
                 </div>
             </div>
@@ -162,7 +162,7 @@
                 <div class="col-md-8 text-center heading-section ftco-animate">
                     <span class="subheading">{{$blog->title}}</span>
                     <h2 class="mb-4">{{$blog->excerpt}}</h2>
-                    <p>{{$blog->content}}</p>
+                    <p>{!! html_entity_decode($blog['content']) !!}</p>
                 </div>
             </div>
             <div class="row">
@@ -171,12 +171,11 @@
                     <div class="blog-entry">
                         <a href="{{url(('single-blog/'.$blog->slug))}}" class="block-20 d-flex align-items-end justify-content-end" style="background-image: url({{$blog->getNewsImage()}});">
                         </a>
-                        <div class="text bg-white p-4" style="background-color: #46b7de;">
-                            <h3 class="heading"><a href="#">{{$blog->excerpt}}</a></h3>
-                            <p>{{$blog->content}}</p>
+                        <div class="text">
+                            <h3 class="heading"><a href="#">{{str_limit($blog['excerpt'],20)}}</a></h3>
+                            <p>{{(str_limit($blog['content'],200)) }}</p>
                             <div class="d-flex align-items-center mt-4">
-                                <p class="mb-0"><a href="#" class="btn btn-primary">Read More <span class="ion-ios-arrow-round-forward"></span></a></p>
-                                <p class="ml-auto mb-0">
+                                <p><a href="{{url(('single-blog/'.$blog->slug))}}" class="btn-custom">Read More <span class="ion-ios-arrow-forward"></span></a></p>  <p class="ml-auto mb-0">
                                     <a href="#" class="mr-2">Admin</a>
                                     <a href="#" class="meta-chat"><span class="icon-chat"></span> 3</a>
                                 </p>
@@ -186,10 +185,11 @@
                 </div>
                 @endforeach
             </div>
-            <div class="button" style="margin-top: 20px; text-align: center;">
+            <div class="button" style="margin-top: 30px; text-align: center;">
                 <a href="{{url('blog')}}"> <input type="Submit" value="View All Blogs" class="btn btn-primary py-2 px-6"></a>
             </div>
         </div>
+
     </section>
 
     <!-- Modal -->

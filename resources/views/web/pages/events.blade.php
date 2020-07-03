@@ -18,7 +18,7 @@
                                     <span><i class="icon-calendar mr-2"></i>{{$event->start_date}}</span>
                                 </p>
                             </div>
-                            <p class="mb-4">{{$event->content}}</p>
+                            <p class="mb-4">{{str_limit($event["content"],100)}}</p>
                             <p><a href="{{url('SingleEvents/'.$event->slug)}}" class="btn-custom">Read More <span class="ion-ios-arrow-forward"></span></a></p>
                         </div>
                     </div>

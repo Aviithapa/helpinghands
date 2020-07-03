@@ -10,12 +10,12 @@
                 <div class="col-md-8 text-center heading-section ftco-animate">
                     <span class="subheading">{{$blog->title}}</span>
                     <h2 class="mb-4">{{$blog->excerpt}}</h2>
-                    <p>{{$blog->content}}</p>
+                    <p>{!! html_entity_decode($blog['content']) !!}</p>
                 </div>
             </div>
             <div class="row">
                 @foreach($blogs as $blog)
-                <div class="col-md-4 ftco-animate">
+                <div class="col-md-4 ftco-animate" style="margin-top: 30px;">
 
                     <div class="blog-entry">
 
@@ -26,11 +26,10 @@
 {{--                                <span class="yr">2019</span>--}}
 {{--                            </div>--}}
                         </a>
-                        <div class="text bg-white p-4" style="background-color: #46b7de;">
-                            <h3 class="heading"><a href="#">{{$blog->excerpt}}</a></h3>
-                            <p>{{$blog->content}}</p>
+                        <div class="text">
+                            <h3 class="heading"><a href="#">{{$blog->title}}</a></h3>
                             <div class="d-flex align-items-center mt-4">
-                                <p class="mb-0"><a href="#" class="btn btn-primary">Read More <span class="ion-ios-arrow-round-forward"></span></a></p>
+                                <p class="mb-0" style="padding-bottom: 20px;"><a href="#" class="btn btn-primary">Read More <span class="ion-ios-arrow-round-forward"></span></a></p>
                                 <p class="ml-auto mb-0">
                                     <a href="#" class="mr-2">Admin</a>
                                     <a href="#" class="meta-chat"><span class="icon-chat"></span> 3</a>

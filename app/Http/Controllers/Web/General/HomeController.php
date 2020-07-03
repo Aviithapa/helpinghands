@@ -110,10 +110,13 @@ class HomeController extends BaseController
                     break;
                 case 'about':
                     $this->view_data['testimonial'] = $this->postRepository->findBy('type', 'testimonial', '=');
+                    $this->view_data['testimonials'] = $this->postRepository->findById(4);
+
                     break;
                 case 'events':
-                    $this->view_data['event'] = $this->eventRepository->findBy('type', 'events', '=');
+                    $this->view_data['event']=$this->eventRepository->findBy('type', 'events', '=');
                     $this->view_data['testimonial'] = $this->postRepository->findBy('type', 'testimonial', '=');
+
                     break;
                 case 'blog':
                     $this->view_data['blogs'] = $this->postRepository->findBy('type', 'news', '=',false,4);
@@ -183,7 +186,6 @@ class HomeController extends BaseController
     public function Donation(Request $request){
         try {
             $donation=$request->all();
-            $donation["image"]=$donation['donor_pic'];
             $this->donationRepository->create($donation);
             return view('web.pages.success');
 

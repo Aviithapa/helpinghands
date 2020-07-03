@@ -10,5 +10,6 @@ interface EventRepository extends Repository
 
     public function getActiveEvent();
 
+
 }
 

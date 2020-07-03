@@ -12,8 +12,8 @@
                 <div class="col-md-7 wrap-about py-4 py-md-5 ftco-animate">
                     <div class="heading-section mb-5">
                         <div class="pl-md-5 ml-md-5 pt-md-5">
-                            <span class="subheading mb-2">Welcome to Rehab Care Center</span>
-                            <h2 class="mb-2" style="font-size: 32px;">Medical specialty concerned with the mental health and problems</h2>
+                            <span class="subheading mb-2">Welcome to Helping Hands</span>
+                            <h2 class="mb-2" style="font-size: 32px;">Event organization specially focus on the donation and help</h2>
                         </div>
                     </div>
                     <div class="pl-md-5 ml-md-5 mb-5 justify">
@@ -52,8 +52,8 @@
         <div class="container">
             <div class="row justify-content-center mb-5 pb-2">
                 <div class="col-md-8 text-center heading-section ftco-animate">
-                    <span class="subheading">Testimonials</span>
-                    <h2 class="mb-4">Our Patients Says About Us</h2>
+                    <span class="subheading">{{$testimonials->title}}</span>
+                    <h2 class="mb-4">{{$testimonials->excerpt}}</h2>
                 </div>
             </div>
             <div class="row ftco-animate justify-content-center">
