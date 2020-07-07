@@ -38,11 +38,17 @@
                         <div class="col-md-6 col-lg-6">
                             <div class="form-group">
                                 {!! Form::label('Bank Account', 'Bank Account:', ['class' => 'form-label']) !!}
-                                {!! Form::text('Bank Account', null, ['class' => 'form-control','maxlength'=>'190']) !!}
-                                {!! $errors->first('Bank Account', '<div class="text-danger">:message</div>') !!}
+                                {!! Form::text('bank_Account', null, ['class' => 'form-control','maxlength'=>'190']) !!}
+                                {!! $errors->first('bank_Account', '<div class="text-danger">:message</div>') !!}
                             </div>
                         </div>
-
+                        <div class="col-md-6 col-lg-6">
+                            <div class="form-group">
+                                {!! Form::label('bank_branch', 'Bank Branch:', ['class' => 'form-label']) !!}
+                                {!! Form::text('bank_branch', null, ['class' => 'form-control','maxlength'=>'190']) !!}
+                                {!! $errors->first('bank_branch', '<div class="text-danger">:message</div>') !!}
+                            </div>
+                        </div>
                         <div class="col-md-12 col-lg-12">
                             <div class="form-group">
                                 {!! Form::label('content', 'Content:', ['class' => 'form-label']) !!}

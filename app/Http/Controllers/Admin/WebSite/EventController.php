@@ -85,8 +85,9 @@ class EventController extends BaseController
     public function store(CreateEventRequest $createPostRequest)
     {
         $data = $createPostRequest->all();
+        $data['user_id']=Auth::user()['id'];
         $data['image']=$data['events_pic'];
-        $data['user_id']=Auth::user()->id;
+
         try {
             $events = $this->eventRepository->create($data);
             if($events == false) {
@@ -140,7 +141,6 @@ class EventController extends BaseController
         $data = $updatePostRequest->all();
         try {
             $data['image']=$data['events_pic'];
-
             $events = $this->eventRepository->update($data, $id);
 
             if($events == false) {

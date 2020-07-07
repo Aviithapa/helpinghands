@@ -1,8 +1,8 @@
-
 @extends('admin.layout.app')
 
+
 @section('content')
-    @include('admin.partials.common.page-title', ['page_title' => 'Donor List'])
+    @include('admin.partials.common.page-title', ['page_title' => 'Donation Management'])
     <div>
         <div class="row-fluid">
             <div class="span12">
@@ -18,12 +18,10 @@
                             <tr>
                                 <th>ID</th>
                                 <th>Name</th>
-                                <th>Email</th>
                                 <th>Address</th>
                                 <th>Phone Number</th>
-                                <th>Event Id</th>
-                                <th>Image</th>
-                                <th>Action</th>
+                                <th>Voucher</th>
+                                <th class="disabled-sorting">Action</th>
                             </tr>
                             </thead>
                         </table>
@@ -39,18 +37,16 @@
         $('#data-table').DataTable({
             processing: true,
             serverSide: true,
-            ajax: '{{ route('dashboard.donor.index')}}',
+            ajax: '{{ route('dashboard.donation.index') }}',
             columns: [
                 {data: 'id', name: 'id'},
                 {data: 'name', name: 'name'},
-                {data: 'email', name: 'email'},
                 {data: 'address', name: 'address'},
                 {data: 'phoneNumber', name: 'phoneNumber'},
-                {data: 'event_id', name: 'event_id'},
-                {data: 'image', name: 'image'},
+                {data: 'voucher', name: 'voucher'},
                 {className: 'td-actions', data: 'action', name: 'action', orderable: false, searchable: false}
-
             ]
         });
     </script>
 @endpush
+

@@ -3,37 +3,59 @@
 
 namespace App\Http\Controllers\Admin\WebSite;
 use App\Http\Controllers\Admin\BaseController;
+use App\Modules\Backend\Authentication\User\Repositories\UserRepository;
 use App\Modules\Backend\Website\Donation\Repositories\DonationRepository;
+use App\Modules\Backend\Website\Event\Repositories\EventRepository;
 use Yajra\DataTables\Facades\DataTables;
 
 class DonorController extends BaseController
 {
     private $donorRepository;
-
+  private $userRepository;
+  private $eventRepository;
     /**
      * UserController constructor.
      * @param DonationRepository $donorRepository
+     * @param UserRepository $userRepository
      */
-    public function __construct(DonationRepository $donorRepository)
+    public function __construct(DonationRepository $donorRepository, UserRepository $userRepository, EventRepository $eventRepository)
     {
         $this->donorRepository = $donorRepository;
+        $this->userRepository=$userRepository;
+        $this->eventRepository=$eventRepository;
     }
 
     public function index()
     {
-        if (\request()->ajax()) {
-            $help = $this->donorRepository->getAll();
-            return DataTables::of($help)
-                ->addColumn('action', function ($help) {
-                    $data = $help;
-                    $name = 'dashboard.donor';
-                    $view = true;
-                    return $this->view('partials.common.action', compact('data', 'name', 'view'))->render();
-                })
-                ->editColumn('id', 'ID: {{$id}}')
-                ->make(true);
 
-        }
+        if (\request()->ajax()) {
+            $donors=$this->donorRepository->getAll();
+                return DataTables::of($donors)
+                    ->addColumn('action', function ($donors) {
+                        $data = $donors;
+                        $name = 'dashboard.donor';
+                        $watch = true;
+                        return $this->view('partials.common.action', compact('data', 'name', 'watch'))->render();
+                    })
+                    ->editColumn('image', function ($donors) {
+                        $url=asset($donors->getImage());
+                        return '<img src='.$url.' border="0" width="40"  />';
+////                        return '<img src="'.asset($events->getImage()).'" border="0" width="40" class="img-rounded" align="center" />';
+                    })
+                    ->editColumn('id', 'ID: {{$id}}')
+                    ->rawColumns(['image', 'action'])
+                    ->make(true);
+            }
         return $this->view('web-site.donor.index');
+    }
+    /**
+     * @param $id
+     * @return mixed
+     */
+    public function show($id)
+    {
+        $donor = $this->donorRepository->findById($id);
+        $events=$this->eventRepository->findById($donor['event_id']);
+        return $this->view('web-site.donor.show', compact('donor','events'));
     }
 }

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 29, 2020 at 06:24 PM
+-- Generation Time: Jul 07, 2020 at 12:48 PM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.2.26
 
@@ -41,25 +41,9 @@ CREATE TABLE `donation` (
   `event_id` int(10) UNSIGNED DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
-  `image` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT ''
+  `image` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT '',
+  `user_id` int(10) UNSIGNED DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Dumping data for table `donation`
---
-
-INSERT INTO `donation` (`id`, `name`, `email`, `address`, `city`, `district`, `zip`, `phoneNumber`, `mobileNumber`, `event_id`, `created_at`, `updated_at`, `image`) VALUES
-(1, 'Abhishek Thapa', 'abhishekthapa115@gmail.com', 'ward no 8', 'TripuraSundari', 'Baitadi', '14000', '9867739191', '9867739191', NULL, '2020-06-29 00:00:45', '2020-06-29 00:00:45', ''),
-(2, 'ganesh', 'ganesh@gmail.com', '12434', 'Kathmandu', 'Kathmandu', '14400', 'XXXXXXXXXX', '9867739191', NULL, '2020-06-29 00:07:36', '2020-06-29 00:07:36', ''),
-(3, 'ganesh', 'ganesh@gmail.com', '12434', 'Kathmandu', 'Kathmandu', '14400', 'XXXXXXXXXX', '9867739191', NULL, '2020-06-29 00:08:56', '2020-06-29 00:08:56', ''),
-(4, 'ganesh', 'ganesh@gmail.com', '12434', 'Kathmandu', 'Kathmandu', '14400', 'XXXXXXXXXX', '9867739191', NULL, '2020-06-29 00:09:25', '2020-06-29 00:09:25', ''),
-(5, 'ganesh', 'ganesh@gmail.com', '12434', 'Kathmandu', 'Kathmandu', '14400', 'XXXXXXXXXX', '9867739191', NULL, '2020-06-29 00:09:45', '2020-06-29 00:09:45', ''),
-(6, 'ganesh', 'ganesh@gmail.com', '12434', 'Kathmandu', 'Kathmandu', '14400', 'XXXXXXXXXX', '9867739191', NULL, '2020-06-29 00:10:00', '2020-06-29 00:10:00', ''),
-(7, 'ganesh', 'ganesh@gmail.com', '12434', 'Kathmandu', 'Kathmandu', '14400', 'XXXXXXXXXX', '9867739191', NULL, '2020-06-29 00:10:59', '2020-06-29 00:10:59', ''),
-(8, 'Prashant Thapa', 'prashant@gmail.com', 'Tripura', 'Kathmandi', 'Kathmandu', '14000', '9867739191', '9867739191', NULL, '2020-06-29 09:04:38', '2020-06-29 09:04:38', NULL),
-(9, 'Prashant Thapa', 'prashant@gmail.com', 'Tripura', 'Kathmandi', 'Kathmandu', '14000', '9867739191', '9867739191', NULL, '2020-06-29 09:06:42', '2020-06-29 09:06:42', 'Capture.PNG'),
-(10, 'Prashant Thapa', 'prashant@gmail.com', 'Tripura', 'Kathmandi', 'Kathmandu', '14000', '9867739191', '9867739191', NULL, '2020-06-29 09:13:23', '2020-06-29 09:13:23', NULL),
-(11, 'Prashant Thapa', 'prashant123@gmail.com', 'Tripura', 'Kathmandi', 'Kathmandu', '14000', '9867739191', '9867739191', NULL, '2020-06-29 09:42:06', '2020-06-29 09:42:06', NULL);
 
 -- --------------------------------------------------------
 
@@ -80,20 +64,30 @@ CREATE TABLE `events` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   `status` enum('in-active','active') COLLATE utf8mb4_unicode_ci DEFAULT 'in-active',
-  `Bank Account` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `user_id` int(10) UNSIGNED DEFAULT NULL
+  `bank_Account` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `user_id` int(10) UNSIGNED DEFAULT NULL,
+  `bank_branch` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT ''
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `events`
 --
 
-INSERT INTO `events` (`id`, `title`, `content`, `excerpt`, `image`, `start_date`, `end_date`, `type`, `slug`, `created_at`, `updated_at`, `status`, `Bank Account`, `user_id`) VALUES
-(1, 'abcd', 'iabhs', 'abh', '1SOBbPGSp09I3BXiGpIqykwfCfjSxFI8BnZUff4g.jpeg', '2020-06-23', '2020-06-25', 'events', 'abcd', '2020-06-20 04:05:04', '2020-06-24 12:39:19', 'active', NULL, NULL),
-(5, 'abc', 'abc', 'abc', '', '', '', 'events', 'abc', NULL, '2020-06-24 12:18:41', 'active', NULL, NULL),
-(7, 'a', 'a', 'a', '', '', '', 'events', 'a', NULL, '2020-06-24 12:18:47', 'active', NULL, 5),
-(8, 'gopal', 'gopal', 'gopal', 'jEQjo9Dzqj7Yxe6y4ZYk8bgUePEOQaviatm17WiE.jpeg', '2020-06-26', '2020-06-26', 'events', 'gopal', '2020-06-24 12:17:24', '2020-06-24 12:18:03', 'active', NULL, NULL),
-(9, '10th Ebola outbreak in the Democratic Republic of the Congo declared over; vigilance against flare-ups and support for survivors must continue', 'Event driven systems are typically used when there is some asynchronous external activity that needs to be handled by a program; for example, a user who presses a button on their mouse. An event driven system typically runs an event loop, that keeps waiting for such activities, e.g. input from devices or internal alarms. When one of these occurs, it collects data about the event and dispatches the event to the event handler software that will deal with it.\r\n\r\nA program can choose to ignore events, and there may be libraries to dispatch an event to multiple handlers that may be programmed to listen for a particular event. The data associated with an event at a minimum specifies what type of event it is, but may include other information such as when it occurred, who or what caused it to occur, and extra data provided by the event source to the handler about how the event should be processed.\r\n\r\nEvents are typically used in user interfaces, where actions in the outside world (mouse clicks, window-resizing, keyboard presses, messages from other programs, etc.) are handled by the program as a series of events. Programs written for many windowing environments consist predominantly of event handlers.\r\n\r\nEvents can also be used at instruction set level, where they complement interrupts. Compared to interrupts, events are normally handled synchronously: the program explicitly waits for an event to be serviced (typically by calling an instruction that dispatches the next event), whereas an interrupt can demand service at any time.', '“The DRC is now better, smarter and faster at responding to Ebola and this is an enduring legacy which is supporting the response to COVID-19 and other outbreaks.”', '9k6yWcPCMoOrxga9l27oqGPgXcbobwuPtPD0mcsW.jpeg', '2020-06-30', '2020-07-04', 'events', '10th-ebola-outbreak-in-the-democratic-republic-of-the-congo-declared-over-vigilance-against-flareups-and-support-for-survivors-must-continue', '2020-06-29 01:58:23', '2020-06-29 02:07:04', 'active', NULL, NULL);
+INSERT INTO `events` (`id`, `title`, `content`, `excerpt`, `image`, `start_date`, `end_date`, `type`, `slug`, `created_at`, `updated_at`, `status`, `bank_Account`, `user_id`, `bank_branch`) VALUES
+(1, 'Localizing Of SDG 16 In Nepal', 'This project is designed to intensify engagement of Government, CSOs on SDG 16 to achieve 2030 Agenda of Sustainable Development in the country. Overall purpose of this project is to contribute in integrating the indicators of goal 16 indicators in local government policies.\r\n\r\nOverall purpose of this project is to strengthen engagement of CSOs for implementing the 2030 Agenda of Sustainable Development. Specifically, the project aims to: strengthen policy engagement of CSOs on Goal 16 with all three tiers, and to enhance capacity of CSOs to engage on Goal 16 at national and local level.\r\n\r\nOrganize policy dialogues\\ workshops on SDG 16 in National and province level, organize a national civil society conference, organize a national review meeting on SDG 16 with NPC, updated the thematic activities of Nepal SDGs Forum at province level and publish handbooks on SDGs 16 specified the related targets and indicators in Nepali will be the major activities of this project. Ultimately, this project aims to contribute in achieving SDGs in the country and complement to Government\'s efforts.\r\n\r\nOrganize policy dialogues\\ workshops on SDG 16 in National and province level, organize a national civil society conference, organize a national review meeting on SDG 16 with NPC, updated the thematic activities of Nepal SDGs Forum at province level and publish handbooks on SDGs 16 specified the related targets and indicators in Nepali will be the major activities of this project. Ultimately, this project aims to contribute in achieving SDGs in the country and complement to Government\'s efforts.', NULL, 'zborxjoptbuGwhELF90BFxEqZg7Burn259flxyMg.jpeg', '2020-06-23', '2020-06-25', 'events', 'localizing-of-sdg-16-in-nepal', '2020-06-20 04:05:04', '2020-07-02 22:52:11', 'active', 'xxxx-xxxx-xxxx-xxxx', NULL, 'kalimati'),
+(5, 'Medical Aid Reaches Hurricane Survivors', 'Forty days after Hurricane Maria hit Puerto Rico, Elia had empty prescription bottles and no way to refill them. Without power, pharmacies could not access patient records or insurance plans. “I can’t get medicine because there’s no data system,” Elia says. Elia was living without electricity or water; lack of medicine was adding to her worries. She needs medicine daily to control her blood pressure and diabetes.\r\n\r\nNo power.  No records. No medicine.  A health crisis for Elia.\r\n\r\nBeginning immediately after the hurricane, Americares delivered medicine and medical supplies to more than 60 health centers on the island and brought medical teams to communities including Moca, in western Puerto Rico, where Elia lives. On an 85-degree November day, Elia was one of 60 patients who received care and medication from Americares medical team at no cost.', 'A Person in Crisis Gets the Health Care She Needs', '0Xs1pk4xRYVA7uerdBcj3PcnoWWCekZCdJD9Q0pX.jpeg', '2020-07-05', '2020-07-18', 'events', 'medical-aid-reaches-hurricane-survivors', NULL, '2020-07-02 22:46:42', 'active', NULL, NULL, ''),
+(7, 'Saving the Tiniest Babies in Kosovo', 'Sebahate was seven months along in her first pregnancy when dangerously high blood pressure led to an emergency C-section to save her unborn child.The baby girl she and her husband named Laura* weighed less than 2 pounds at birth and struggled to breathe, her tiny lungs not yet fully developed.\r\n\r\nThe preemie spent her first days of life in the neonatal intensive care unit at the University Clinical Center Kosovo’s Neonatal Intensive Care Unit, where she survived thanks to respiratory medication donated by AmeriCares and AbbVie, and the assistance of a continuous positive airway pressure machine. AmeriCares supports the NICU through a partnership with Action for Mothers and Children, a local NGO focused on improving the survival rates of mothers and babies in Kosovo, one of the poorest countries in Europe.\r\n\r\nLaura is one of more than 1,000 premature low-weight babies to survive since 2006 when AmeriCares and Abbott began delivering surfactant therapy to prevent respiratory distress in pre-term infants. AbbVie spun off from Abbott in 2013 and has sponsored the program ever since.', 'A mother with her newborn daughter treated with surfactant from AmeriCares and AbbVie at the University Clinical Center Kosovo’s Neonatal Intensive Care Unit.', 'jN0OeZv31CC111xG7Nuc3M0GgJCsRglAs0r4SOws.jpeg', '2020-07-04', '2020-08-29', 'events', 'saving-the-tiniest-babies-in-kosovo', NULL, '2020-07-02 22:35:53', 'active', NULL, 5, ''),
+(8, 'Frontline health workers need our help!', 'Jeremy Abbott, Miki Ando, Shizuka Arakawa, Tai Babilonia and Randy Gardner, Brian Boitano, Michal Březina, Jason Brown, Kurt Browning, Alexei Bychenko, Ashley Cain-Gribble and Timothy Leduc, Sasha Cohen, Todd Eldredge, Amber Glenn, Gracie Gold, Ekaterina Gordeeva, Melissa Gregory and Denis Petukhov, Dorothy Hamill, Scott Hamilton, Emily Hughes, Nancy Kerrigan, Michelle Kwan, Naomi Lang, Tara Lipinski, Vakhtang Murvanidze, Viktor Petrenko, Matteo Rizzo, Yuka Sato, Alexa Scimeca and Chris Knierim, Elvis Stojko, Fumie Suguri, Bradie Tennell, Rohene Ward, Johnny Weir, Paul Wylie, Alexei Yagudin and the Ice Theatre of New York**', 'Blades for The Brave is a livestream event bringing Olympic and World Championship figure skaters together fundraising for COVID-19 relief.', 'PJAgy42GBBgavIUYrZTW1e1Zsyoh4OYH95a60JLi.jpeg', '2020-06-26', '2020-06-26', 'events', 'frontline-health-workers-need-our-help', '2020-06-24 12:17:24', '2020-07-02 22:45:45', 'active', NULL, NULL, ''),
+(9, '10th Ebola outbreak in the Democratic Republic of the Congo declared over; vigilance against flare-ups and support for survivors must continue', 'Event driven systems are typically used when there is some asynchronous external activity that needs to be handled by a program; for example, a user who presses a button on their mouse. An event driven system typically runs an event loop, that keeps waiting for such activities, e.g. input from devices or internal alarms. When one of these occurs, it collects data about the event and dispatches the event to the event handler software that will deal with it.\r\n\r\nA program can choose to ignore events, and there may be libraries to dispatch an event to multiple handlers that may be programmed to listen for a particular event. The data associated with an event at a minimum specifies what type of event it is, but may include other information such as when it occurred, who or what caused it to occur, and extra data provided by the event source to the handler about how the event should be processed.\r\n\r\nEvents are typically used in user interfaces, where actions in the outside world (mouse clicks, window-resizing, keyboard presses, messages from other programs, etc.) are handled by the program as a series of events. Programs written for many windowing environments consist predominantly of event handlers.\r\n\r\nEvents can also be used at instruction set level, where they complement interrupts. Compared to interrupts, events are normally handled synchronously: the program explicitly waits for an event to be serviced (typically by calling an instruction that dispatches the next event), whereas an interrupt can demand service at any time.', '“The DRC is now better, smarter and faster at responding to Ebola and this is an enduring legacy which is supporting the response to COVID-19 and other outbreaks.”', '9k6yWcPCMoOrxga9l27oqGPgXcbobwuPtPD0mcsW.jpeg', '2020-06-30', '2020-07-04', 'events', '10th-ebola-outbreak-in-the-democratic-republic-of-the-congo-declared-over-vigilance-against-flareups-and-support-for-survivors-must-continue', '2020-06-29 01:58:23', '2020-06-29 02:07:04', 'active', NULL, NULL, ''),
+(10, '2nd Medical Tourism Asia Summit- 2019', '2nd Medical Tourism Asia Summit- 2019:\r\n\r\nWe have scheduled to organize 2nd Medical Tourism Asia Summit- 2019 on 29-30 November, 2019 at Kathmandu, Nepal to meet out our objectives.\r\n\r\nWe are focused on promoting healthcare services with global B2B Network of;\r\n\r\n- Healthcare Service Provider Meet\r\n\r\n- Healthcare Facilitators Meet\r\n\r\n- Healthcare Technology Providers Meet\r\n\r\n- Healthcare Education Providers Meet\r\n\r\n- Medicine & Equipment Suppliers Meet\r\n\r\n- Healthcare Investors Meet', NULL, 'Mqc4vku3BySKrgEA4IGUhe1dRun3N6s4KpGbNLH1.jpeg', '2020-07-04', '2020-07-31', 'events', '2nd-medical-tourism-asia-summit-2019', '2020-07-02 22:55:49', '2020-07-02 22:55:49', 'active', NULL, NULL, ''),
+(11, 'Donate Your Commute and Help Save Lives', 'Not commuting to work at the moment? Why not donate your bus, train, uber, or parking fees to make a massive impact for some of the most vulnerable people in our community.\r\n\r\nEven $10 a month will add up to fund hours of critical cancer research! Every monthly gift makes a powerful difference.\r\n\r\nOver 1.8 million people globally are diagnosed with cancer every day. They are the most vulnerable and need our help now more than ever.\r\n\r\nOur cancer researchers are determined to continue their lifesaving work.\r\n\r\nThe collective force of every regular donor builds to increase our momentum. By giving monthly, we can push cancer research forward and bring new ground-breaking discoveries to light.\r\n\r\nEvery dollar helps and every hour of research matters. This could be the hour that saves someone’s life.\r\n\r\nStart a monthly donation today and ensure that the most promising cancer research is always moving full steam ahead.', 'HELP FUND LIFESAVING RESEARCH EVERY MONTH', 'p4owkWDtlGY0ExfNjDDsGzYKj3GklX8F8iWPJP1B.png', '2020-07-04', '2020-07-31', 'events', 'donate-your-commute-and-help-save-lives', '2020-07-02 23:00:54', '2020-07-02 23:00:54', 'active', NULL, NULL, ''),
+(12, '2020 Cancer Milestones', 'Whatever your milestone, you deserve to enjoy it!\r\n\r\nBring your loved ones together to celebrate, but in lieu of gifts, why not ask your friends to make a donation to Cure Cancer?\r\n\r\nIt’s a meaningful way to honour the occasion, while making a lasting difference to future generations. \r\n\r\nSimply let your friends and familiy know why cancer research is close to your heart and what your fundraising goal is. No doubt they’ll be delighted to support you!\r\n\r\nPledging this milestone to Cure Cancer is a hugely generous gesture – one that promises to make your moment every more meaningful and memorable', 'Cure Cancer is dedicated entirely to funding early career researchers. We identify, assess and fund the research we believe has the best possible chance of finding a cure. Most importantly,', 'P1KyJAQo4T8P1Jxs2XHjWaWz87hWbC83uo0GUcnM.jpeg', '2020-07-04', '2020-07-31', 'events', '2020-cancer-milestones', '2020-07-02 23:05:57', '2020-07-07 05:02:49', 'active', '143578945879', NULL, 'global-ime-bank kalimati'),
+(13, 'abhishek', 'abhishekthapa', 'abhishek', '7Q0GaIaszFGrneTIodl11ILdEuiEtxXtTsQV8u8c.png', '2020-07-04', '2020-07-25', 'events', 'abhishek', '2020-07-03 00:28:30', '2020-07-03 00:29:23', 'active', NULL, 9, ''),
+(14, 'Test', 'Testing purpose', 'Testing', 'SSqPdPn3sJvcVgnToq15gyil1G8xBiDu0pMDTFhq.png', '2020-07-04', '2020-07-31', 'events', 'test', '2020-07-03 00:32:50', '2020-07-03 00:57:17', 'active', NULL, 9, ''),
+(15, 'hello', 'hello', 'hello', '2ZJ3GFLxcw7whhXEeVyqozC0RbdeBm7uHW6D5Cci.png', '2020-07-04', '2020-07-31', 'events', 'hello', '2020-07-03 00:34:15', '2020-07-03 00:34:15', 'in-active', NULL, 9, ''),
+(16, 'title', 'Content', 'Excerpt', '96ofJ5dBJIAAcIsvbqpnPyLTJI5hb1jb3Hebmb4V.png', '2020-07-04', '2020-07-30', 'events', 'title', '2020-07-03 00:37:00', '2020-07-03 00:37:00', 'in-active', NULL, NULL, ''),
+(17, 'eventsese', 'event', 'event', '9eAVBZOV2BfllFjYnDWZEVijbLEf7oJhrOWTztz0.png', '2020-07-24', '2020-07-31', 'events', 'eventsese', '2020-07-03 00:39:49', '2020-07-03 00:39:49', 'in-active', NULL, NULL, ''),
+(18, 'Photo shoot program', 'some content', 'This is test escerpt', 'zrjSh3yoz0sqE6wJx2Xfty3JqcFCXrCpmAHwDnLE.png', '2020-07-02', '2020-07-18', 'events', 'photo-shoot-program', '2020-07-03 00:55:34', '2020-07-03 00:55:34', 'in-active', NULL, NULL, '');
 
 -- --------------------------------------------------------
 
@@ -111,19 +105,6 @@ CREATE TABLE `help` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Dumping data for table `help`
---
-
-INSERT INTO `help` (`id`, `name`, `phone`, `email`, `problem`, `message`, `created_at`, `updated_at`) VALUES
-(1, 'abhishek', 'bsjkdbsajkbdkjb', 'abhishke', 'EconomicalProblem', 'bjkjb', '2020-06-27 00:06:50', '2020-06-27 00:06:50'),
-(2, 'abhishek', 'bsjkdbsajkbdkjb', 'abhishke', 'EconomicalProblem', 'bjkjb', '2020-06-27 01:41:53', '2020-06-27 01:41:53'),
-(3, 'abhishek', 'bsjkdbsajkbdkjb', 'abhishke', 'EconomicalProblem', 'bjkjb', '2020-06-27 01:43:28', '2020-06-27 01:43:28'),
-(4, 'abhishe', 'bjkbdj', 'bsjkdbj', 'MentalStress', 'jkbdjk', '2020-06-27 01:43:51', '2020-06-27 01:43:51'),
-(5, 'abhishek', 'jbdj', 'bsjbd', 'MentalStress', 'sabdkjasbd', '2020-06-27 01:47:27', '2020-06-27 01:47:27'),
-(6, 'abhishek', '9867739191', 'abhishekthapa115@gmail.com', 'EconomicalProblem', 'Hello', '2020-06-27 01:55:43', '2020-06-27 01:55:43'),
-(7, 'abhishek', '9867739191', 'abhishekthapa115@gmail.com', 'EconomicalProblem', 'Hello', '2020-06-27 01:56:01', '2020-06-27 01:56:01');
 
 -- --------------------------------------------------------
 
@@ -159,7 +140,10 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (15, '2020_06_20_091936_create_events_table', 6),
 (16, '2020_06_27_052528_create_help_table', 7),
 (17, '2020_06_29_053847_create_donation_table', 8),
-(18, '2020_06_29_144334_add_image_to_the_donation_table', 9);
+(18, '2020_06_29_144334_add_image_to_the_donation_table', 9),
+(19, '2020_07_07_045339_add_event_id_to_user_table', 10),
+(20, '2020_07_07_084138_add_user_id_to_donation_table', 11),
+(21, '2020_07_07_103543_add_bank_branch_to_the_events_table', 12);
 
 -- --------------------------------------------------------
 
@@ -327,8 +311,7 @@ INSERT INTO `posts` (`id`, `title`, `content`, `excerpt`, `image`, `logo_image`,
 (4, 'TESTIMONIALS', NULL, 'Our Clients Says About Us', NULL, '', 'content', 'testimonials', '2019-12-02 02:59:03', '2020-06-21 00:07:16', '', '', NULL, '', '', '', NULL),
 (5, 'Blogs', '<p>Separated they live in. A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country</p>', 'Recent Blogs', 'ZljvjoZJWvTC3PCsdgofuCgGuqVWzZ4BkYuN3eMI.jpeg', '', 'content', 'blogs', NULL, '2020-06-21 00:10:19', '', '', NULL, '', '', '', NULL),
 (9, 'Subscribe', '<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in</p>', 'Subcribe to our Newsletter', 'yAQZUJ3Ja91YUx0NzcQT5VIpUPBTwzEkZJDdODqS.jpeg', '', 'content', 'subscribe', '2019-12-02 04:54:25', '2020-06-21 00:12:36', '', '', NULL, '', '', '', NULL),
-(15, 'SEO/SEM', NULL, 'SEO/SEM', 'x0RyLcOcy7CxABKQ1Ni4VgNMds6Jdpq6qWYZf5AP.jpeg', NULL, '', 'seosem', '2019-12-02 06:20:59', '2020-03-01 23:08:52', '', '', NULL, '', '', '', NULL),
-(23, 'Rijan', 'I was really impressed by the thing that i have', 'Designer', 'a0ALzjqnKm3xPkwyPbxhgjc0Nb7u1izdINkEv0ae.jpeg', '', 'testimonial', 'rijan', '2019-12-02 07:33:02', '2020-06-16 03:19:30', '', '', NULL, '', '', '', NULL),
+(23, 'Abhishek', 'I was really impressed by the thing that i have', 'Developer', 'V1mqad0ESIe3ibXZ9k1NzlMZ2irMBKBNpp1EzY0L.jpeg', '', 'testimonial', 'abhishek', '2019-12-02 07:33:02', '2020-07-02 23:37:38', '', '', NULL, '', '', '', NULL),
 (33, 'Event Management', 'Esteem spirit temper too say adieus who direct esteem. It esteems luckily or picture placing drawing.', 'fas fa-allergies', '', 'eI2l6BJQOFqYVllpS8QzHeElQOhAcsXZb0nyMbwp.png', 'services', 'event-management', '2019-12-07 09:28:50', '2020-06-15 22:54:00', '', '', NULL, '', '', '', NULL),
 (35, 'Esteem spirit', 'Esteem spirit temper too say adieus who direct esteem. It esteems luckily or picture placing drawing.', NULL, '', NULL, 'services', 'esteem-spirit', '2019-12-07 09:33:03', '2020-06-15 22:54:44', '', '', NULL, '', '', '', NULL),
 (36, 'Esteem', 'Esteem spirit temper too say adieus who direct esteem. It esteems luckily or picture placing drawing.', NULL, '', '', 'services', 'esteem', '2019-12-07 10:04:49', '2020-06-15 22:55:12', '', '', NULL, '', '', '', NULL),
@@ -338,14 +321,17 @@ INSERT INTO `posts` (`id`, `title`, `content`, `excerpt`, `image`, `logo_image`,
 (55, 'Single Blog', NULL, NULL, NULL, NULL, 'pages', 'single-blog', '2020-02-24 21:43:22', '2020-03-05 22:57:44', 'single-blog/vivo', 'Test', NULL, '', '', '', NULL),
 (56, 'Blog', NULL, NULL, NULL, NULL, 'pages', 'blog', '2020-02-24 21:44:07', '2020-03-03 23:39:20', 'Blog', 'Test', NULL, '', '', '', NULL),
 (57, 'Contact', NULL, NULL, NULL, NULL, 'pages', 'contact', '2020-02-24 21:44:29', '2020-03-03 23:39:51', 'Contact', 'Test', NULL, '', '', '', NULL),
-(93, 'Prashant', 'I think this is the best It company ever i know i provide it all the 5 star company', NULL, 'Sy7dXQxA6xKW470WPcL2MBTXh3sbtsYe8iLZZPLB.png', '', 'testimonial', 'prashant', '2020-03-06 11:25:09', '2020-03-06 11:26:30', '', '', NULL, NULL, NULL, NULL, NULL),
+(93, 'Gopal', 'I think this is the best It company ever i know i provide it all the 5 star company', NULL, '2jbMLI1hyU549lFN9fs8zJ9SNog1Ryy5JEufDlCJ.png', '', 'testimonial', 'gopal', '2020-03-06 11:25:09', '2020-07-02 23:39:09', '', '', NULL, NULL, NULL, NULL, NULL),
 (106, 'banner', NULL, NULL, '5yOAxBFCiBvp4ln6LLhHhjdbpJlKw8FgL2Zh9fhq.jpeg', '', 'homepage_banner', 'banner', '2020-06-15 22:24:10', '2020-06-20 23:43:43', '', '', NULL, NULL, NULL, NULL, NULL),
 (107, 'banner1', NULL, NULL, 'hTJy1LtsC5HXjrGRat4MUbk6VEevrk1A52zX672I.jpeg', '', 'homepage_banner', 'banner1', '2020-06-15 22:24:41', '2020-06-20 23:44:34', '', '', NULL, NULL, NULL, NULL, NULL),
 (108, 'banner2', NULL, NULL, 'C3frm2QFtA07lJxbQZ8WxbbR7RkZY2SGIAj0wmGZ.jpeg', '', 'homepage_banner', 'banner2', '2020-06-15 22:25:09', '2020-06-20 23:45:27', '', '', NULL, NULL, NULL, NULL, NULL),
-(109, 'Hello', 'Blog Testing', 'Blog', 'ZXMviWVcY6F81LMPo74tlRpXaAtaRdNrCjMCeXvl.jpeg', '', 'news', 'hello', '2020-06-21 06:22:47', '2020-06-21 06:22:47', '', '', NULL, NULL, NULL, NULL, NULL),
+(109, 'Women\'s rights', 'Women’s work is often overlooked, unpaid and undervalued. They work in unsafe conditions and have precarious jobs. Greater corporate accountability for upholding human rights is needed.Across the world, women and girls are at risk of violence. We must challenge the social and cultural norms that lead to women’s vulnerability.There are structural causes of violence against women: beliefs, access to resources, and economics. Governments must do more to serve the needs of poor and excluded women, and to protect and advance their rights.', 'Women, who pay the highest price of unjust policies and patriarchal societies, must play a key role in order to bring about social change.', 'xlBGhuuyfApYqRKJIvz0VS85d5ZdDyA5RVPhsk0e.jpeg', '', 'news', 'womens-rights', '2020-06-21 06:22:47', '2020-07-02 21:24:04', '', '', NULL, NULL, NULL, NULL, NULL),
 (112, 'About', NULL, NULL, NULL, NULL, 'pages', 'about', '2020-06-28 10:06:24', '2020-06-28 10:06:24', 'About', NULL, NULL, NULL, NULL, NULL, NULL),
 (113, 'Donation', NULL, NULL, NULL, NULL, 'pages', 'donation', '2020-06-29 02:30:22', '2020-06-29 02:30:22', 'Donation', 'Test', NULL, NULL, NULL, NULL, NULL),
-(114, 'SingleEvents', NULL, NULL, NULL, NULL, 'pages', 'singleevents', '2020-06-29 02:31:21', '2020-06-29 02:31:21', 'Single Events', 'Test', NULL, NULL, NULL, NULL, NULL);
+(114, 'SingleEvents', NULL, NULL, NULL, NULL, 'pages', 'singleevents', '2020-06-29 02:31:21', '2020-06-29 02:31:21', 'Single Events', 'Test', NULL, NULL, NULL, NULL, NULL),
+(115, 'Acces and quality of education', 'Whereas school enrolment rates have gone up, millions of children still find themselves at schools that for the most part fail to fulfil their mission of education suitably. Support to teachers’ training, improvement in teaching skills and the school environment, capacity-building of local communities and institutions, support to school management authorities… the association devotes a very significant share of its projects to strengthening educational systems so that they enable each child to fully develop his or her potential and become a responsible citizen.', '250 million children across the world do not know how to read or write, even after 4 years in school', 'veD3l00qxBk5JcW4xQgilK59MD2eA6prxfrCNIJj.jpeg', '', 'news', 'acces-and-quality-of-education', '2020-07-02 21:27:17', '2020-07-02 21:27:17', '', '', NULL, NULL, NULL, NULL, NULL),
+(116, 'American Aid', '<div><div><div>More than 4,000 health centers around the world receive donated medicines and supplies from Americares, helping to improve the health of the communities they serve. Since our founding in 1979, Americares has deliv<i><b></b></i>ered more than $17 billion in humanitarian assistance and health-focused programs to 164 countries, including the U.S.We distribute over $900 million in quality medicine and supplies to more than 90 countries each year. Last year we shipped enough medicine to fill 12.6 million prescriptions along with 21 million medical supplies for patient care, safe surgery and more.Our global supply chain is built upon our strong relationships with an unrivaled network of&nbsp;in-country partners.&nbsp;<br><div><div></div></div>We work with our partner health providers to track medicine and supplies to ensure quality and safety, helping us deliver the right medicine at the right time to the people who desperately need it. &nbsp;<span>Every day, Americares delivers essential medicines and supplies to hundreds of hospitals and health clinics in the developing world and to&nbsp;<a target=\"_blank\" rel=\"nofollow\" href=\"https://www.americares.orghttps//www.americaresfreeclinics.org/\">free clinics serving the uninsured</a>&nbsp;in the U.S.&nbsp; Since cholera began its deadly spread in Haiti in 2010, for example, the supply of nearly 500,000 treatments for patients with the disease kept a lot of people alive, while ongoing support also helped 465,000 including health workers, lower their risk of the disease.</span><br></div><div><div></div></div></div></div><div><div></div></div>', 'Providing Access Saves Lives', 'XWRRFHsaaFjnmoOyOz7oMzRD6f7KYgl62c1AlxYM.jpeg', '', 'news', 'american-aid', '2020-07-02 21:36:06', '2020-07-02 22:29:51', '', '', NULL, NULL, NULL, NULL, NULL),
+(117, 'Nonprofits Have Laid Off 1.6M since March, Finds Center for Civil Society', '<span>For nearly 20 years, Dr. Lester Salamon of the&nbsp;<a target=\"_blank\" rel=\"nofollow\" href=\"http://ccss.jhu.edu/\">Center for Civil Society Studies</a>&nbsp;at Johns Hopkins University has been tracking the growth of the nonprofit sector.&nbsp;<a target=\"_blank\" rel=\"nofollow\" href=\"https://nonprofitquarterly.org/nonprofit-workforce-study-finds-strengths-in-growth-pay-and-resilience/\">Last year’s study</a>, for example, based on 2016 data, found that nonprofit employment had grown to tie manufacturing employment at 12.29 million. According to the 2017 figures contained in the latest report, nonprofit employment has passed manufacturing, having risen in 2017 to 12.49 million (versus 12.4 million for manufacturing). Had the report been published, as it was last year, in February, that might have been the headline.</span>The report finds a continuation of 2016’s trends in 2017. Nonprofit wages in 2017 totaled $670 billion. Nonprofit wages were 97 percent of private sector wages but generally&nbsp;exceeded&nbsp;private sector wages where nonprofits are prevalent. Intriguingly, nonprofits may soon be the nation’s second-largest employment sector. (The holder of that spot in 2017, accommodations and food services, has contracted severely under COVID-19.)<span>But of course, the report was not published in the winter—and, as the scope of the pandemic became clear, Salamon and his team decided to push the publication back, allowing the report to not just discuss 2017 data, but to look at the field in 2020—and, for the same reasons they decided to do so, that is&nbsp;NPQ’s&nbsp;focus here as well.</span>As Salamon and coauthor Chelsea Newhouse write:', 'As the pandemic reached the United States, it became clear that efforts to slow its spread would have profound impacts on all aspects of our lives, and not least of all on the nonprofit sector. But as is too often the case, these effects seemed especially likely to be ignored in the rush of attention to the other sectors impacted by the pandemic. This not only made this year’s report especially important in order to establish the most recent baseline of information possible against which to chart the virus’s impact, but also, it induced us to go beyond our normal practice of reporting only on past developments by seeking information that would allow us to make meaningful estimates of the impact of current developments, and current policy responses, on this crucial sector in something approaching real time.', 'LQkBE7cQhx3VZBka7MM9Q95AkzAGlUzLfDmY2Ui8.jpeg', '', 'news', 'nonprofits-have-laid-off-16m-since-march-finds-center-for-civil-society', '2020-07-02 23:09:33', '2020-07-02 23:09:33', '', '', NULL, NULL, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -368,7 +354,8 @@ CREATE TABLE `roles` (
 
 INSERT INTO `roles` (`id`, `name`, `display_name`, `description`, `created_at`, `updated_at`) VALUES
 (1, 'administrator', 'Administrator', 'Administrator', '2019-12-02 00:26:30', '2019-12-02 00:26:30'),
-(2, 'eventorganizer', 'Event Organizer', 'Event Organizer\r\n', NULL, NULL);
+(2, 'eventorganizer', 'Event Organizer', 'Event Organizer\r\n', NULL, NULL),
+(3, 'donor', 'Donor', NULL, '2020-07-06 22:24:53', '2020-07-06 22:24:53');
 
 -- --------------------------------------------------------
 
@@ -392,7 +379,32 @@ INSERT INTO `role_user` (`role_id`, `user_id`, `user_type`) VALUES
 (1, 3, 'App\\Models\\Auth\\User'),
 (2, 5, 'App\\Models\\Auth\\User'),
 (2, 7, 'App\\Models\\Auth\\User'),
-(2, 8, 'App\\Models\\Auth\\User\r\n');
+(2, 8, 'App\\Models\\Auth\\User\r\n'),
+(2, 9, 'App\\Models\\Auth\\User'),
+(2, 10, 'App\\Models\\Auth\\User'),
+(3, 11, 'App\\Models\\Auth\\User'),
+(3, 12, 'App\\Models\\Auth\\User'),
+(3, 13, 'App\\Models\\Auth\\User'),
+(3, 14, 'App\\Models\\Auth\\User'),
+(3, 15, 'App\\Models\\Auth\\User'),
+(3, 16, 'App\\Models\\Auth\\User'),
+(3, 17, 'App\\Models\\Auth\\User'),
+(3, 18, 'App\\Models\\Auth\\User'),
+(3, 19, 'App\\Models\\Auth\\User'),
+(3, 20, 'App\\Models\\Auth\\User'),
+(3, 21, 'App\\Models\\Auth\\User'),
+(3, 22, 'App\\Models\\Auth\\User'),
+(3, 23, 'App\\Models\\Auth\\User'),
+(3, 24, 'App\\Models\\Auth\\User'),
+(3, 25, 'App\\Models\\Auth\\User'),
+(3, 26, 'App\\Models\\Auth\\User'),
+(3, 27, 'App\\Models\\Auth\\User'),
+(3, 28, 'App\\Models\\Auth\\User'),
+(3, 29, 'App\\Models\\Auth\\User'),
+(3, 30, 'App\\Models\\Auth\\User'),
+(3, 31, 'App\\Models\\Auth\\User'),
+(3, 32, 'App\\Models\\Auth\\User'),
+(3, 33, 'App\\Models\\Auth\\User');
 
 -- --------------------------------------------------------
 
@@ -500,19 +512,29 @@ CREATE TABLE `users` (
   `remember_token` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
-  `deleted_at` timestamp NULL DEFAULT NULL
+  `deleted_at` timestamp NULL DEFAULT NULL,
+  `bank_voucher` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT '',
+  `type` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT 'admin',
+  `event_id` int(10) UNSIGNED DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id`, `name`, `user_name`, `email`, `status`, `phone_number`, `mobile_number`, `address`, `state`, `postal_code`, `city`, `country`, `website`, `company_name`, `company_registration_number`, `vat_pan_no`, `contact_name`, `contact_email`, `contact_phone_number`, `contact_mobile_number`, `password`, `password_reference`, `password_change_code`, `image`, `provider`, `provider_id`, `remember_token`, `created_at`, `updated_at`, `deleted_at`) VALUES
-(1, 'Abhishek Thapa', 'abhishekthapa', 'abhishekthapa115@gmail.com', 'active', '9867739191', NULL, 'TripuraSundari Baitadi', '', '', '', '', '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '$2y$10$urKVN2RFYOcMKoh.Ouk5.ufB9AMHSM61G/gBNeUDjUREQNAc3e3B2', '', '', NULL, NULL, NULL, 'mo7pvH7StVxtzi413sML8GeA6vLPWbdJiEt68tdwvLkmqfXKD1I1HZGHA1um', '2020-06-14 23:45:42', '2020-06-14 23:45:42', NULL),
-(5, 'abhi', 'abhi', 'gopal@gmail.com', 'active', NULL, NULL, NULL, '', '', '', '', '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '$2y$10$fJzaEr/6OdYx4AXsVb0LMedPuh..Ye1pyrTF1AaZMUx.QgqXJNitm', '', '', NULL, NULL, NULL, 'Du0qXBw0G9DHs5jw1j5Uf2GErVfNWJ2z7vx5Kp60XYqsCQT1qUrZ4zXUjvN1', '2020-06-24 01:25:07', '2020-06-24 01:25:07', NULL),
-(6, 'Ganesh', 'ganesh', 'ganesh@gmail.com', 'in-active', '9867739191', '9867739191', 'Tripura', '', '', '', '', '', 'Companu', 'fjahfj', 'nsjdbj', 'bdjsbd', 'bhish@gmail.com', 'dnfskan', 'nsjncjdn', '$2y$10$5k9GKWw/r13mqGXOFIz9Iev2xHERZ1vWZrxiTgPNjxKFUsStfAtIu', 'ganesh123', '', '', NULL, NULL, NULL, '2020-06-28 09:10:18', '2020-06-28 09:10:18', NULL),
-(7, 'Birendra', 'biru', 'biru@gmail.com', 'in-active', '9867739191', NULL, 'Tripura', '', '', '', '', '', '', '', '', '', '', '', '', '$2y$10$LQYK8yS3yb7HJQo73cx3AeD6lHxVPQvxjyUP5DLwabYg1Z8mEOCGW', 'birendra', '', '', NULL, NULL, 'JIb8ksrb3UIP6p14oJyhuUtRcokLcIeTZwDqT9xba9LnjgZdGIzhUOyqJGte', '2020-06-28 09:46:28', '2020-06-28 09:46:28', NULL),
-(8, 'prashant', 'prashant', 'prashant@gmail.com', 'in-active', '9868718874', '9867739191', 'tripura', '', '', '', '', '', '', '', '', '', '', '', '', '$2y$10$ZJOf8kOAprB4Lf5s0YBVj.M7F9TQ7nKczce7ICXeUqWoA.DrKgz5a', 'abhishek', '', '', NULL, NULL, 'dYB6mq4Qdaenxf0BarJeQaf9rgHSBp7BSz8g1m18VdFwL0OFkUhS7PGkNuxk', '2020-06-29 00:15:02', '2020-06-29 00:15:02', NULL);
+INSERT INTO `users` (`id`, `name`, `user_name`, `email`, `status`, `phone_number`, `mobile_number`, `address`, `state`, `postal_code`, `city`, `country`, `website`, `company_name`, `company_registration_number`, `vat_pan_no`, `contact_name`, `contact_email`, `contact_phone_number`, `contact_mobile_number`, `password`, `password_reference`, `password_change_code`, `image`, `provider`, `provider_id`, `remember_token`, `created_at`, `updated_at`, `deleted_at`, `bank_voucher`, `type`, `event_id`) VALUES
+(1, 'Abhishek Thapa', 'abhishekthapa', 'abhishekthapa115@gmail.com', 'active', '9867739191', NULL, 'TripuraSundari Baitadi', '', '', '', '', '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '$2y$10$urKVN2RFYOcMKoh.Ouk5.ufB9AMHSM61G/gBNeUDjUREQNAc3e3B2', '', '', NULL, NULL, NULL, 'n6p8lykLmrOkZBaPheKoL3MVc9CwnjT8WxHtq8TLBYdaEuiUfS4V1WjiTWPj', '2020-06-14 23:45:42', '2020-06-14 23:45:42', NULL, '', 'admin', NULL),
+(5, 'abhi', 'abhi', 'gopal@gmail.com', 'active', NULL, NULL, NULL, '', '', '', '', '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '$2y$10$fJzaEr/6OdYx4AXsVb0LMedPuh..Ye1pyrTF1AaZMUx.QgqXJNitm', '', '', NULL, NULL, NULL, 'Du0qXBw0G9DHs5jw1j5Uf2GErVfNWJ2z7vx5Kp60XYqsCQT1qUrZ4zXUjvN1', '2020-06-24 01:25:07', '2020-06-24 01:25:07', NULL, '', 'admin', NULL),
+(6, 'Ganesh', 'ganesh', 'ganesh@gmail.com', 'in-active', '9867739191', '9867739191', 'Tripura', '', '', '', '', '', 'Companu', 'fjahfj', 'nsjdbj', 'bdjsbd', 'bhish@gmail.com', 'dnfskan', 'nsjncjdn', '$2y$10$5k9GKWw/r13mqGXOFIz9Iev2xHERZ1vWZrxiTgPNjxKFUsStfAtIu', 'ganesh123', '', '', NULL, NULL, NULL, '2020-06-28 09:10:18', '2020-06-28 09:10:18', NULL, '', 'admin', NULL),
+(7, 'Birendra', 'biru', 'biru@gmail.com', 'in-active', '9867739191', NULL, 'Tripura', '', '', '', '', '', '', '', '', '', '', '', '', '$2y$10$LQYK8yS3yb7HJQo73cx3AeD6lHxVPQvxjyUP5DLwabYg1Z8mEOCGW', 'birendra', '', '', NULL, NULL, 'JIb8ksrb3UIP6p14oJyhuUtRcokLcIeTZwDqT9xba9LnjgZdGIzhUOyqJGte', '2020-06-28 09:46:28', '2020-06-28 09:46:28', NULL, '', 'admin', NULL),
+(8, 'prashant', 'prashant', 'prashant@gmail.com', 'in-active', '9868718874', '9867739191', 'tripura', '', '', '', '', '', '', '', '', '', '', '', '', '$2y$10$ZJOf8kOAprB4Lf5s0YBVj.M7F9TQ7nKczce7ICXeUqWoA.DrKgz5a', 'abhishek', '', '', NULL, NULL, 'dYB6mq4Qdaenxf0BarJeQaf9rgHSBp7BSz8g1m18VdFwL0OFkUhS7PGkNuxk', '2020-06-29 00:15:02', '2020-06-29 00:15:02', NULL, '', 'admin', NULL),
+(9, 'ravindra', 'ravi', 'ravi@gmail.com', 'in-active', '9867739191', '9867739191', 'jhulaghat', '', '', '', '', '', '', '', '', '', '', '', '', '$2y$10$Otv7KsjCQDqli1MPBMM2lO8VKdSjODXvz0KsIN6aptu0Y0jvFFDhm', 'abhishek', '', '', NULL, NULL, 'RZSHZjHpwwV9ywBKkRrNOSpfRmP5pJGsHVq6lWpxYmfaIfHcSNPBEZNvZ0FH', '2020-07-03 00:27:27', '2020-07-03 00:27:27', NULL, '', 'admin', NULL),
+(10, 'niman', 'niman', 'test@gmail.com', 'in-active', 'abcd', 'abcd', 'abcd', '', '', '', '', '', '', '', '', '', '', '', '', '$2y$10$VGEmRxIVb/O.HymvWlNpx.p7ozae6HpmxLlv1yzJn1ual4OxMXLuW', 'aaaaaa', '', '', NULL, NULL, 'okvnqqPt09OzHfGNVXwJysEAUaM3AMFUc1EFEkAArqflzLgpRn0nLO1xr3HK', '2020-07-03 00:52:38', '2020-07-03 00:52:38', NULL, '', 'admin', NULL),
+(29, 'manish', '', 'manish1@gmail.com', 'in-active', '', '', '8', '', '', 'tripura', '', '', '', '', '', '', '', '', '', '$2y$10$bgHMGPhhkEJSMXxteUGrXOClZDhHlY2KthtJLCZvXMtCFYnEJKI0K', '', '', '', NULL, NULL, NULL, '2020-07-07 04:26:34', '2020-07-07 04:26:34', NULL, '', 'donor', 1),
+(30, 'manish', '', 'manish1@gmail.com', 'in-active', '', '', '8', '', '', 'tripura', '', '', '', '', '', '', '', '', '', '$2y$10$FxMAmBZ4AYt7nlEa11VLyeGO/oJQJqboY3p8CbAOdEpSUvXbHk6j.', '', '', '', NULL, NULL, NULL, '2020-07-07 04:26:50', '2020-07-07 04:26:50', NULL, '', 'donor', 1),
+(31, 'manish', '', 'manish1@gmail.com', 'in-active', '', '', '8', '', '', 'tripura', '', '', '', '', '', '', '', '', '', '$2y$10$II/oBRiN6U/zxW.Ap9zjbepMGl2SCqT4MbwTSN9T7osAtqP34gvEi', '', '', '', NULL, NULL, NULL, '2020-07-07 04:27:25', '2020-07-07 04:27:25', NULL, '', 'donor', 1),
+(32, 'manish', '', 'manish1@gmail.com', 'in-active', '', '', '8', '', '', 'tripura', '', '', '', '', '', '', '', '', '', '$2y$10$YPnIqGm48yRlfZIhQ1R9VeXhWpHQK46FouyxI7lgEwOlLWrG3ZbNe', '', '', '', NULL, NULL, NULL, '2020-07-07 04:27:48', '2020-07-07 04:27:48', NULL, '', 'donor', 1),
+(33, 'manish', '', 'manish1@gmail.com', 'in-active', '', '', '8', '', '', 'tripura', '', '', '', '', '', '', '', '', '', '$2y$10$WkuIC1y/BrGOapon8iITFOFGyYU35g6yaHoBjdyamu4wmMOFioAi2', '', '', '', NULL, NULL, NULL, '2020-07-07 04:28:15', '2020-07-07 04:28:15', NULL, '', 'donor', 1);
 
 --
 -- Indexes for dumped tables
@@ -523,7 +545,8 @@ INSERT INTO `users` (`id`, `name`, `user_name`, `email`, `status`, `phone_number
 --
 ALTER TABLE `donation`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `donation_event_id_foreign` (`event_id`);
+  ADD KEY `donation_event_id_foreign` (`event_id`),
+  ADD KEY `donation_user_id_foreign` (`user_id`);
 
 --
 -- Indexes for table `events`
@@ -608,7 +631,8 @@ ALTER TABLE `sliders`
 -- Indexes for table `users`
 --
 ALTER TABLE `users`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `users_event_id_foreign` (`event_id`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -618,13 +642,13 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `donation`
 --
 ALTER TABLE `donation`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 
 --
 -- AUTO_INCREMENT for table `events`
 --
 ALTER TABLE `events`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT for table `help`
@@ -636,7 +660,7 @@ ALTER TABLE `help`
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- AUTO_INCREMENT for table `permissions`
@@ -648,13 +672,13 @@ ALTER TABLE `permissions`
 -- AUTO_INCREMENT for table `posts`
 --
 ALTER TABLE `posts`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=115;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=118;
 
 --
 -- AUTO_INCREMENT for table `roles`
 --
 ALTER TABLE `roles`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `site_settings`
@@ -672,7 +696,7 @@ ALTER TABLE `sliders`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
 
 --
 -- Constraints for dumped tables
@@ -682,7 +706,8 @@ ALTER TABLE `users`
 -- Constraints for table `donation`
 --
 ALTER TABLE `donation`
-  ADD CONSTRAINT `donation_event_id_foreign` FOREIGN KEY (`event_id`) REFERENCES `events` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `donation_event_id_foreign` FOREIGN KEY (`event_id`) REFERENCES `events` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `donation_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `permission_role`
@@ -702,6 +727,12 @@ ALTER TABLE `permission_user`
 --
 ALTER TABLE `role_user`
   ADD CONSTRAINT `role_user_role_id_foreign` FOREIGN KEY (`role_id`) REFERENCES `roles` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `users`
+--
+ALTER TABLE `users`
+  ADD CONSTRAINT `users_event_id_foreign` FOREIGN KEY (`event_id`) REFERENCES `events` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

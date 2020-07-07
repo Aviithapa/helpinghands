@@ -71,6 +71,8 @@ class LoginController extends Controller
 
             }elseif (Auth::user()->mainRole()->name ==='eventorganizer'){
                     return redirect()->intended('dashboard');
+            }elseif (Auth::user()->mainRole()->name ==='donor'){
+            return redirect()->intended('dashboard');
             }
             else{
                 Auth::logout();

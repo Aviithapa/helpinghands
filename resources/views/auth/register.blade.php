@@ -218,7 +218,7 @@
                             <label for="email" class="col-md-4 control-label">Phone Number</label>
 
                             <div class="col-md-6">
-                                <input id="phone_number" type="text" class="form-control" name="phone_number" value="{{ old('phone_number') }}" required>
+                                <input id="phone_number" pattern="[0,9]{10}"  type="text" class="form-control" name="phone_number" value="{{ old('phone_number') }}" required>
 
                                 @if ($errors->has('phone_number'))
                                     <span class="help-block">
@@ -232,7 +232,7 @@
                             <label for="mobile_number" class="col-md-4 control-label">Mobile Number (Optional)</label>
 
                             <div class="col-md-6">
-                                <input id="mobile_number" type="text" class="form-control" name="mobile_number" value="{{ old('mobile_number') }}" >
+                                <input id="mobile_number" type="number" class="form-control" name="mobile_number" value="{{ old('mobile_number') }}" >
 
                                 @if ($errors->has('mobile_number'))
                                     <span class="help-block">

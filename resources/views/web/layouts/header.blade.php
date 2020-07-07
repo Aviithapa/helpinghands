@@ -20,6 +20,7 @@
                 <div class="col-md-4 order-md-3 d-flex topper mb-md-0 align-items-center">
                     <div class="icon d-flex justify-content-center align-items-center"><span class="fas fa-sign-in-alt"></span></div>
                     <div class="text pl-3 pl-md-3">
+                        <a href="{{url('register/eventorganizer')}}"><button class="btn btn-4">Register</button></a>
                         <a href="{{url('login')}}"><button class="btn btn-4">Login</button></a>
                     </div>
                 </div>

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Modules\Backend\Authentication\User\Repositories\UserRepository;
+use App\Modules\Backend\Website\Donation\Repositories\DonationRepository;
 use App\Modules\Backend\Website\Event\Repositories\EventRepository;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -12,11 +13,13 @@ class DashBoardController extends BaseController
 {
     private $userRepository;
     private $eventRepository;
+    private $donorRepository;
 
-    public function __construct(UserRepository $userRepository,EventRepository $eventRepository)
+    public function __construct(UserRepository $userRepository,EventRepository $eventRepository, DonationRepository $donorRepository)
     {
         $this->userRepository = $userRepository;
         $this->eventRepository=$eventRepository;
+        $this->donorRepository=$donorRepository;
         parent::__construct();
     }
 
@@ -31,8 +34,10 @@ class DashBoardController extends BaseController
             case 'eventorganizer':
                 return $this->view('dashboard.default');
                 break;
-            case 'travel_agent':
-                return $this->view('dashboard.travel-agent');
+            case 'donor':
+                $donor=$this->donorRepository->getAll()->where('user_id','=',Auth::user()['id'])->first();
+                $event=$this->eventRepository->findById($donor['event_id']);
+                return $this->view('dashboard.main',compact('event'));
                 break;
             case 'b2b_agent':
                 return $this->view('dashboard.b2b-agent');

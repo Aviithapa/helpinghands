@@ -4,7 +4,9 @@
 namespace App\Modules\Backend\Website\Donation\Repositories;
 
 
-interface DonationRepository
+use App\Modules\Framework\Repository;
+
+interface DonationRepository extends Repository
 {
 
 }

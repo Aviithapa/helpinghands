@@ -1,10 +1,5 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: Saurav KC
- * Date: 2/14/2018
- * Time: 11:21 AM
- */
+
 
 namespace App\Modules\Backend\Authentication\User\Repositories;
 

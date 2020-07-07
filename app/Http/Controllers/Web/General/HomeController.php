@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Web\General;
 
 use App\Http\Controllers\Web\BaseController;
+use App\Models\Auth\Role;
 use App\Models\Website\Donation;
 use App\Models\Website\GetTouch;
 use App\Models\Website\Help;
@@ -98,7 +99,7 @@ class HomeController extends BaseController
     {
         $slug = $slug ? $slug : 'index';
         $this->view_data['pageContent'] = $this->postRepository->findBySlug($slug, false);
-        $this->view_data['Event'] = $this->eventRepository->findBy('type', 'events', '=','false','6');
+        $this->view_data['Event'] = $this->eventRepository->findBy('type', 'events', '=',false,'8');
         $file_path = resource_path() . DIRECTORY_SEPARATOR . 'views' . DIRECTORY_SEPARATOR . 'web/pages' . DIRECTORY_SEPARATOR . $slug . '.blade.php';
         if (file_exists($file_path)) {
             switch ($slug) {
@@ -165,6 +166,10 @@ class HomeController extends BaseController
         return view('web.pages.single-blog' , $this->view_data);
 
     }
+    public function donation($id,Request $request){
+        $this->view_data['id']=$id;
+        return view('web.pages.donation',$this->view_data);
+    }
 
     public function Help(Request $request){
         try {
@@ -183,12 +188,26 @@ class HomeController extends BaseController
 
         }
     }
-    public function Donation(Request $request){
+    public function User(Request $request,$id=null){
         try {
-            $donation=$request->all();
-            $this->donationRepository->create($donation);
-            return view('web.pages.success');
+            $data=$request->all();
+            $role = Role::where('name', 'donor')->first();
+            $data['type']='donor';
+            $data['password'] = bcrypt($data['phoneNumber']);
+            $user=$this->userRepository->create($data);
+            $user->attachRole($role);
 
+            $donation=$request->all();
+            $donation['user_id']=$user['id'];
+            $this->donationRepository->create($donation);
+            $events=$this->eventRepository->findById($id);
+            if($user == false)
+            {
+                session()->flash('danger', 'Oops! Something went wrong.');
+                return redirect()->back()->withInput();
+            }
+            session()->flash('success', 'User added successfully');
+            return view('web.pages.success',compact('events'));
 
         }catch (\UnexpectedValueException $e){
 

@@ -260,6 +260,6 @@ class UserController extends BaseController
             return redirect()->back();
         }
     }
-   
+
 
 }

@@ -7,7 +7,7 @@
 <section class="bg-light" style="margin-bottom: 50px; height:650px;">
     <div class="container">
         <div class="heading-section text-center"><h1>Donation Form</h1></div>
-    <form method="post" action="{{url('donation')}}">
+    <form method="post" action="{{url('donation/'.$id)}}">
         {{csrf_field()}}
         <div class="text-danger">All the fields are required</div>
         <div class="form-row">
@@ -36,6 +36,10 @@
             <div class="form-group col-md-2">
                 <label for="inputZip">Zip</label>
                 <input type="text" name="zip" class="form-control" id="inputZip" required>
+            </div>
+            <div class="form-group col-md-2">
+                <label for="inputZip">Event Id</label>
+                <input readonly name="event_id" value='{{$id}}' class="form-control" id="inputEventId" required>
             </div>
         </div>
         <div class="form-row">

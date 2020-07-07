@@ -74,7 +74,7 @@
                   </div>
                </div>
                 <div class="form-group container-fluid" style="margin-top: 20px;">
-                    <a href="{{url('donation')}}"><input type="submit" value="Donate" class="btn btn-primary py-3 px-5"></a>
+                    <a href="{{url('donation/'.$Event->id)}}"><input type="submit" value="Donate" class="btn btn-primary py-3 px-5"></a>
                 </div>
                 @endforeach
             </div>

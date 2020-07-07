@@ -37,21 +37,26 @@
         <div class="col-md-7 col-md-offset-2 tiles white no-padding">
             <button onclick="goBack()" style="font-size: 25px;" class="close">&bigotimes;</button>
             <div class="p-t-30 p-l-40 p-b-20 xs-p-t-10 xs-p-l-10 xs-p-b-10">
-                    <h2 class="normal">
-                        We have Got your Request
+                    <h2 class="text-danger">
+                        Warning
                     </h2>
             </div>
             <div class="tiles grey p-t-20 p-b-20 no-margin text-black tab-content">
-                <div class="text-center">
-                    You request to donate has been added to {{getSiteSetting('site_title')}}.Here is our Bank Details<br>
-                    Name: HelpingHands<br>
-                    AccountNumber: 18034XXXXXXXXXXX<br>
-                    Branch: Kalimati Global Ime Bank
+                <div class="text-center text-danger">
+                    Your Request be submitted only submitted after uploading bank voucher through your account where<br>
+                    Email : Your Email<br>
+                    Password: Your Phone Number <br>
                 </div>
             </div>
             <div class="p-t-30 p-l-40 p-b-20 xs-p-t-10 xs-p-l-10 xs-p-b-10">
+                <h4>You can find out you bank details after login</h4>
+            </div>
+            <div class="tiles grey p-t-30 p-l-40 p-b-20 xs-p-t-10 xs-p-l-10 xs-p-b-10 text-black tab-content">
                 <a href="/" class="btn btn-info btn-cons" title="Register">
                     Continue to site
+                </a>
+                <a href="{{url('login')}}" class="btn btn-info btn-cons" title="Register">
+                    Go to login
                 </a>
             </div>
         </div>

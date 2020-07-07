@@ -10,10 +10,10 @@ class Donation extends Model
 {
   protected $table="Donation";
 
-  protected $fillable=['name','email','address','city','district','zip','phoneNumber','mobileNumber','event_id','image'];
+  protected $fillable=['name','email','address','city','district','zip','phoneNumber','mobileNumber','event_id','image','user_id'];
     public function getImage(){
         if(isset($this->image)) {
-            return uploadedAsset('donor_pic', $this->image);
+            return uploadedAsset('voucher', $this->image);
         }
         else {
             return imageNotFound();

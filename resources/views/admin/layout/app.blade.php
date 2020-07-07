@@ -25,6 +25,9 @@
     @case("eventorganizer")
     @include('admin.sidebar.eventorganizer')
     @break
+    @case("donor")
+    @include('admin.sidebar.donor')
+    @break
     @default
     @include('admin.sidebar.default')
 @endswitch

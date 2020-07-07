@@ -42,8 +42,8 @@
             columns: [
                 {data: 'title', name: 'title'},
                 {data: 'excerpt', name: 'excerpt'},
-             {data: 'content', name: 'content'},
-             {data: 'events_pic', name: 'events_pic'},
+                {data: 'content', name: 'content'},
+                {data: 'events_pic', name: 'events_pic'},
                 {className: 'td-actions', data: 'action', name: 'action', orderable: false, searchable: false}
             ]
         });

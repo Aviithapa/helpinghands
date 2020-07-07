@@ -48,6 +48,9 @@ class User extends Authenticatable
         'image',
         'provider',
         'provider_id',
+        'event_id',
+        'bank_voucher',
+        'type',
 
     ];
 
@@ -97,11 +100,19 @@ class User extends Authenticatable
      */
     public function getImage()
     {
-        if(isset($this->image) && $this->image != '') {
-            return uploadedAsset('user/', $this->image);
+        if(isset($this->image)) {
+            return uploadedAsset('user', $this->image);
         }
         else {
-            return imageNotFound('user');
+            return imageNotFound();
+        }
+    }
+    public function voucherImage(){
+        if(isset($this->image)) {
+            return uploadedAsset('voucher', $this->image);
+        }
+        else {
+            return imageNotFound();
         }
     }
 }
