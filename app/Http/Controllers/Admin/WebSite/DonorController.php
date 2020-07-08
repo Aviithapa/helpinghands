@@ -4,6 +4,7 @@
 namespace App\Http\Controllers\Admin\WebSite;
 use App\Http\Controllers\Admin\BaseController;
 use App\Modules\Backend\Authentication\User\Repositories\UserRepository;
+use App\Modules\Backend\Authentication\User\Requests\UpdateUserRequest;
 use App\Modules\Backend\Website\Donation\Repositories\DonationRepository;
 use App\Modules\Backend\Website\Event\Repositories\EventRepository;
 use Yajra\DataTables\Facades\DataTables;
@@ -57,5 +58,32 @@ class DonorController extends BaseController
         $donor = $this->donorRepository->findById($id);
         $events=$this->eventRepository->findById($donor['event_id']);
         return $this->view('web-site.donor.show', compact('donor','events'));
+    }
+    public function edit($id)
+    {
+        $donor = $this->donorRepository->findById($id);
+        return $this->view('web-site.donor.edit', compact('donor'));
+    }
+
+    public function update(UpdateUserRequest $updateUserRequest, $id)
+    {
+        $data = $updateUserRequest->all();
+        try {
+            $user = $this->donorRepository->findById($id);
+            $data['donation_amount'] = $data['donation_amount'];
+            $user = $this->donorRepository->update($data, $id);
+            if($user == false)
+            {
+                session()->flash('danger', 'Oops! Something went wrong.');
+                return redirect()->back()->withInput();
+            }
+            session()->flash('success', 'User updated successfully');
+            return redirect()->route('dashboard.donor.index');
+        }
+        catch (\Exception $e) {
+            $this->log->error('User update : '.$e->getMessage());
+            session()->flash('danger', 'Oops! Something went wrong.');
+            return redirect()->back();
+        }
     }
 }

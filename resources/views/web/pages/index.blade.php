@@ -11,7 +11,7 @@
                     <div class="col-md-6 text ftco-animate">
                         <h1 class="mb-4">Helping Your <span>Stay Happy One</span></h1>
                             <h2 class="subheading">Everyday We Bring Hope and Smile to the Patient We Serve</h2>
-                        <p><a href="{{url('donation')}}" class="btn btn-secondary px-4 py-3 mt-3">Donate</a></p>
+                        <p><a href="{{url('donation/0')}}" class="btn btn-secondary px-4 py-3 mt-3">Donate</a></p>
                     </div>
                 </div>
             </div>

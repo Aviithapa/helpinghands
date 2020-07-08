@@ -23,6 +23,7 @@
                                 <th>Phone Number</th>
                                 <th>Event Id</th>
                                 <th>Image</th>
+                                <th>Donation Amount</th>
                                 <th>Action</th>
                             </tr>
                             </thead>
@@ -48,6 +49,7 @@
                 {data: 'phoneNumber', name: 'phoneNumber'},
                 {data: 'event_id', name: 'event_id'},
                 {data: 'image', name: 'image'},
+                {data: 'donation_amount', name: 'donation_amount'},
                 {className: 'td-actions', data: 'action', name: 'action', orderable: false, searchable: false}
 
             ]

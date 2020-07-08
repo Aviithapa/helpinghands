@@ -7,6 +7,9 @@
     <a href="{{route($name.'.show', $data->id) }}" class="btn btn-primary btn-sm" title="View">
         <i  class="fa fa-eye"></i>
     </a>
+    <a href="{{ route($name.'.edit', $data->id) }}"class="btn btn-info btn-sm" title="Edit">
+        <i  class="fa fa-pencil"></i>
+    </a>
     @else
 @if(isset($view) && $view)
     <a href="{{route($name.'.show', $data->id) }}" class="btn btn-primary btn-sm" title="View">

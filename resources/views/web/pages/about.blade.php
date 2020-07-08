@@ -42,7 +42,7 @@
                     <p></p>
                 </div>
                 <div class="col-md-3 d-flex align-items-center">
-                    <p class="mb-0"><a href="{{url('donation')}}" class="btn btn-secondary px-4 py-3">Donate</a></p>
+                    <p class="mb-0"><a href="{{url('donation/0')}}" class="btn btn-secondary px-4 py-3">Donate</a></p>
                 </div>
             </div>
         </div>
