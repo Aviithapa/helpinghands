@@ -145,10 +145,9 @@ class HomeController extends BaseController
 
     }
 
-     public function SingleEvents($slug = null, Request $request){
-        $slug = $slug ? $slug : 'abcd';
-        $this->view_data['pageContent'] = $this->postRepository->findBySlug('/SingleEvents/'.$slug, false);
-        $this->view_data['Event'] = $this->eventRepository->findBy('slug', $slug, '=', false, 6);
+     public function SingleEvents($id = null, Request $request){
+        $this->view_data['pageContent'] = $this->postRepository->findBySlug('/SingleEvents/'.$id, false);
+        $this->view_data['Event'] = $this->eventRepository->findBy('id', $id, '=', false, 6);
         $this->view_data['Events'] = $this->eventRepository->findBy('type', 'events', '=', false, 3);
 
 

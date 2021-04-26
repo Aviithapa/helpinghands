@@ -54,9 +54,9 @@
                     @if($event->status=='active')
                 <div class="col-md-3 d-flex">
                     <div class="blog-entry ftco-animate">
-                        <a href="{{url('SingleEvents/'.$event->slug)}}" class="img" style="background-image: url({{$event->getImage()}});"></a>
+                        <a href="{{url('SingleEvents/'.$event->id)}}" class="img" style="background-image: url({{$event->getImage()}});"></a>
                         <div class="text p-4">
-                            <h3 class="mb-2"><a href="{{url('SingleEvents/'.$event->slug)}}"> {{str_limit($event['title'],50)}}    </a></h3>
+                            <h3 class="mb-2"><a href="{{url('SingleEvents/'.$event->id)}}"> {{str_limit($event['title'],50)}}    </a></h3>
                             <div class="meta-wrap">
                                 <p class="meta">
                                     <span><i class="icon-calendar mr-2"></i>{{$event->start_date}}</span>
